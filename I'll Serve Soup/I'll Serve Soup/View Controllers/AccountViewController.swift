@@ -12,19 +12,28 @@ class AccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signOutButtonTapped(_ sender: UIButton) {
+        
     }
-    */
+    
+    @IBAction func resetPasswordTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+       
+        
+    navigationController?.popToViewController(InventoryCollectionViewController(), animated: true)
+    }
+    
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var roleTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var resetPasswordButton: UIButton!
+    @IBOutlet weak var signOutButton: UIButton!
+    
 
 }
