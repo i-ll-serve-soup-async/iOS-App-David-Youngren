@@ -18,6 +18,8 @@
 		77C409722211DEAC0003B2DD /* InventoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409712211DEAC0003B2DD /* InventoryCollectionViewController.swift */; };
 		77C409752211FC530003B2DD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409742211FC530003B2DD /* User.swift */; };
 		77C409772211FD050003B2DD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409762211FD050003B2DD /* Item.swift */; };
+		77C4097A2211FDCD0003B2DD /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409792211FDCD0003B2DD /* UserController.swift */; };
+		77C4097C2211FDEA0003B2DD /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4097B2211FDEA0003B2DD /* ItemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		77C409712211DEAC0003B2DD /* InventoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewController.swift; sourceTree = "<group>"; };
 		77C409742211FC530003B2DD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		77C409762211FD050003B2DD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		77C409792211FDCD0003B2DD /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		77C4097B2211FDEA0003B2DD /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 				77C409632211DBEE0003B2DD /* Info.plist */,
 				77C409732211DEBA0003B2DD /* View Controllers */,
 				77C409782211FDAD0003B2DD /* Models */,
+				77C4097D2211FDFB0003B2DD /* Model Controllers */,
 			);
 			path = "I'll Serve Soup";
 			sourceTree = "<group>";
@@ -96,6 +101,15 @@
 				77C409762211FD050003B2DD /* Item.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		77C4097D2211FDFB0003B2DD /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				77C409792211FDCD0003B2DD /* UserController.swift */,
+				77C4097B2211FDEA0003B2DD /* ItemController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77C4097A2211FDCD0003B2DD /* UserController.swift in Sources */,
 				77C4096C2211DE6C0003B2DD /* SignUpViewController.swift in Sources */,
 				77C409702211DE930003B2DD /* AccountViewController.swift in Sources */,
 				77C4096E2211DE820003B2DD /* ItemViewController.swift in Sources */,
@@ -176,6 +191,7 @@
 				77C409772211FD050003B2DD /* Item.swift in Sources */,
 				77C4096A2211DE5E0003B2DD /* LoginViewController.swift in Sources */,
 				77C409582211DBED0003B2DD /* AppDelegate.swift in Sources */,
+				77C4097C2211FDEA0003B2DD /* ItemController.swift in Sources */,
 				77C409752211FC530003B2DD /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
