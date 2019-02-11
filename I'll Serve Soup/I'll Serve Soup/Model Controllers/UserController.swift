@@ -45,12 +45,7 @@ class UserController {
 //    func fetchUser(completion: @escaping (Error?) -> Void) {
 //
 //        let staffURL = baseURL.appendingPathComponent("staff")
-//        let idURL = staffURL.appendingPathComponent(":id")
-//        var urlRequest = URLRequest(url: idURL)
-//        urlRequest.httpMethod = "GET"
-//        urlRequest.addValue("Bearer: token", forHTTPHeaderField: "Authorization")
-//
-//
+//        let idURL = staffURL.appendingPathComponent(<#T##pathComponent: String##String#>)
 //
 //    }
     
