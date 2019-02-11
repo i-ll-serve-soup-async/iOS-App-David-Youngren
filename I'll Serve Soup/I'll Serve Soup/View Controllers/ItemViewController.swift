@@ -27,7 +27,7 @@ class ItemViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-    navigationController?.popToViewController(InventoryCollectionViewController(), animated: true)
+        performSegue(withIdentifier: "UnwindFromItem", sender: self)
     }
     
     @IBOutlet weak var itemNameTextField: UITextField!

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1b8-jt-Xqq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xQW-km-rgA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -133,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-yz-Qwd">
-                                <rect key="frame" x="16" y="40" width="343" height="292"/>
+                                <rect key="frame" x="16" y="84" width="343" height="292"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5B-Kw-ZFF">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -183,9 +183,11 @@
                         <outlet property="amountTextField" destination="Ys9-6C-k7O" id="gra-50-Jlu"/>
                         <outlet property="categoryTextField" destination="tae-ia-e9i" id="R2B-9V-PpG"/>
                         <outlet property="itemNameTextField" destination="c5B-Kw-ZFF" id="2ft-EE-5ui"/>
+                        <segue destination="3TD-W6-qXr" kind="unwind" identifier="UnwindFromItem" unwindAction="unwindToInventoryCVCWithSegue:" id="N8S-Ro-TfN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xSz-2p-xRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3TD-W6-qXr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1527.2" y="664.31784107946032"/>
         </scene>
@@ -198,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mxs-yq-2pc">
-                                <rect key="frame" x="16" y="40" width="343" height="280"/>
+                                <rect key="frame" x="16" y="84" width="343" height="280"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-yR-Any">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -274,9 +276,11 @@
                         <outlet property="resetPasswordButton" destination="lBs-qb-e9B" id="MXo-gn-AOZ"/>
                         <outlet property="roleTextField" destination="KIU-05-C6O" id="wDR-kA-2He"/>
                         <outlet property="signOutButton" destination="p8Q-Vs-H1B" id="O6c-hw-owv"/>
+                        <segue destination="DUo-wA-JNG" kind="unwind" identifier="UnwindFromAccount" unwindAction="unwindToInventoryCVCWithSegue:" id="LOt-e5-cG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nI1-F6-3Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DUo-wA-JNG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1047" y="1424"/>
         </scene>
@@ -388,6 +392,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eA1-YY-h9D"/>
+        <segue reference="WCr-wu-q7o"/>
     </inferredMetricsTieBreakers>
 </document>

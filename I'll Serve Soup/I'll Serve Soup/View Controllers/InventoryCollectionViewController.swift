@@ -40,6 +40,5 @@ class InventoryCollectionViewController: UICollectionViewController {
         return cell
     }
 
-
-
+    @IBAction func unwindToInventoryCVC(segue: UIStoryboardSegue) { }
 }

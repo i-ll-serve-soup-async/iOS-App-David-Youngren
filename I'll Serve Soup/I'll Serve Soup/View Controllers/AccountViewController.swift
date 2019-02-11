@@ -23,9 +23,7 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-       
-        
-    navigationController?.popToViewController(InventoryCollectionViewController(), animated: true)
+        performSegue(withIdentifier: "UnwindFromAccount", sender: self)
     }
     
     @IBOutlet weak var firstNameTextField: UITextField!
