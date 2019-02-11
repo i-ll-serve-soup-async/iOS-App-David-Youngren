@@ -20,9 +20,12 @@
 		77C409772211FD050003B2DD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409762211FD050003B2DD /* Item.swift */; };
 		77C4097A2211FDCD0003B2DD /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409792211FDCD0003B2DD /* UserController.swift */; };
 		77C4097C2211FDEA0003B2DD /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4097B2211FDEA0003B2DD /* ItemController.swift */; };
+		C658C79F68581FDDB5116940 /* Pods_I_ll_Serve_Soup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDABE3B9E64B03C840CA4A4D /* Pods_I_ll_Serve_Soup.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03DFC8E90ABF9157DE7DE22D /* Pods-I'll Serve Soup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I'll Serve Soup.release.xcconfig"; path = "Target Support Files/Pods-I'll Serve Soup/Pods-I'll Serve Soup.release.xcconfig"; sourceTree = "<group>"; };
+		600CC03496C6D697BAAFD391 /* Pods-I'll Serve Soup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I'll Serve Soup.debug.xcconfig"; path = "Target Support Files/Pods-I'll Serve Soup/Pods-I'll Serve Soup.debug.xcconfig"; sourceTree = "<group>"; };
 		77C409542211DBED0003B2DD /* I'll Serve Soup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I'll Serve Soup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C409572211DBED0003B2DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77C4095C2211DBED0003B2DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		77C409762211FD050003B2DD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		77C409792211FDCD0003B2DD /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		77C4097B2211FDEA0003B2DD /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
+		CDABE3B9E64B03C840CA4A4D /* Pods_I_ll_Serve_Soup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_I_ll_Serve_Soup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C658C79F68581FDDB5116940 /* Pods_I_ll_Serve_Soup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00024BD9FF2C1D6D235149AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDABE3B9E64B03C840CA4A4D /* Pods_I_ll_Serve_Soup.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		77C4094B2211DBED0003B2DD = {
 			isa = PBXGroup;
 			children = (
 				77C409562211DBED0003B2DD /* I'll Serve Soup */,
 				77C409552211DBED0003B2DD /* Products */,
+				F52F365914643FAC17A5D39E /* Pods */,
+				00024BD9FF2C1D6D235149AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +127,16 @@
 			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
+		F52F365914643FAC17A5D39E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				600CC03496C6D697BAAFD391 /* Pods-I'll Serve Soup.debug.xcconfig */,
+				03DFC8E90ABF9157DE7DE22D /* Pods-I'll Serve Soup.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +144,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77C409662211DBEE0003B2DD /* Build configuration list for PBXNativeTarget "I'll Serve Soup" */;
 			buildPhases = (
+				040FFDD86D9D42E8B32968FF /* [CP] Check Pods Manifest.lock */,
 				77C409502211DBED0003B2DD /* Sources */,
 				77C409512211DBED0003B2DD /* Frameworks */,
 				77C409522211DBED0003B2DD /* Resources */,
+				ED83F337FC2B72F7C6F6F83D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +204,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		040FFDD86D9D42E8B32968FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-I'll Serve Soup-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED83F337FC2B72F7C6F6F83D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-I'll Serve Soup/Pods-I'll Serve Soup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-I'll Serve Soup/Pods-I'll Serve Soup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77C409502211DBED0003B2DD /* Sources */ = {
@@ -336,6 +410,7 @@
 		};
 		77C409672211DBEE0003B2DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 600CC03496C6D697BAAFD391 /* Pods-I'll Serve Soup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -354,6 +429,7 @@
 		};
 		77C409682211DBEE0003B2DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03DFC8E90ABF9157DE7DE22D /* Pods-I'll Serve Soup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
