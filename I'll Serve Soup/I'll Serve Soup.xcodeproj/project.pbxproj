@@ -41,7 +41,7 @@
 		77C409762211FD050003B2DD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		77C409792211FDCD0003B2DD /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		77C4097B2211FDEA0003B2DD /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
-		CDABE3B9E64B03C840CA4A4D /* Pods_I_ll_Serve_Soup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_I_ll_Serve_Soup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDABE3B9E64B03C840CA4A4D /* Pods_I_ll_Serve_Soup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_I_ll_Serve_Soup.framework; path = "../../../../Users/nathanaelyoungren/Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos/Pods_I_ll_Serve_Soup.framework"; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +133,6 @@
 				600CC03496C6D697BAAFD391 /* Pods-I'll Serve Soup.debug.xcconfig */,
 				03DFC8E90ABF9157DE7DE22D /* Pods-I'll Serve Soup.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
