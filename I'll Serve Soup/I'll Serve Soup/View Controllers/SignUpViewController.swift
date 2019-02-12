@@ -16,6 +16,38 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         
+        guard let firstName = firstNameTextField.text,
+        let lastName = lastNameTextField.text,
+        let role = roleTextField.text,
+        let email = emailTextField.text,
+        let password = passwordTextField.text,
+        let passwordCheck = passwordCheckTextField.text else {
+            return
+        }
+        
+        if firstName.isEmpty || lastName.isEmpty || role.isEmpty || email.isEmpty || password.isEmpty || passwordCheck.isEmpty {
+            displayAlert(title: "Empty Fields", message: "Please fill in all fields.")
+            return
+        }
+        
+        if password != passwordCheck {
+            displayAlert(title: "Passwords Incorrect", message: "Your passwords don't match")
+            return
+        }
+        
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = false
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        
+    }
+    
+    func displayAlert(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertVC.addAction(alertAction)
+        present(alertVC, animated: true, completion: nil)
     }
     
     @IBOutlet weak var signUpTitle: UILabel!
