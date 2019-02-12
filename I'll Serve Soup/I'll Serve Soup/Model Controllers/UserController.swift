@@ -18,11 +18,9 @@ class UserController {
         let staffURL = baseURL.appendingPathComponent("staff")
         let registerURL = staffURL.appendingPathComponent("register")
         
-//        let jsonURL = registerURL.appendingPathExtension("json")
-        
         var urlRequest = URLRequest(url: registerURL)
         urlRequest.httpMethod = "POST"
-        
+        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         let encoder = JSONEncoder()
         
         do {
@@ -51,7 +49,6 @@ class UserController {
             do {
                 let decodedData = try decoder.decode(UserResponse.self, from: data)
                 let token = decodedData.token
-                print(token)
                 let id = decodedData.id
                 let defaults = UserDefaults.standard
                 defaults.set(token, forKey: .token)
