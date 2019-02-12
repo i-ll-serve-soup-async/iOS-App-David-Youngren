@@ -14,7 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        RootSwitch.updateVC()
+        
+        let isLoggedIn = UserDefaults.standard.bool(forKey: .isLoggedIn)
+        
+        if isLoggedIn {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialVC = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+            self.window?.rootViewController = initialVC
+        }
+        
         return true
     }
 

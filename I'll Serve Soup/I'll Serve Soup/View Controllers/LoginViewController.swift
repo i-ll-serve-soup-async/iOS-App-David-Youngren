@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: .isLoggedIn)
-        RootSwitch.updateVC()
     }
     
     @IBOutlet weak var usernameTextField: UITextField!

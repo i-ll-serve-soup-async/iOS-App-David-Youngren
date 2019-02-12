@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xQW-km-rgA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1b8-jt-Xqq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,7 +45,7 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="logInButtonTapped:" destination="1b8-jt-Xqq" eventType="touchUpInside" id="NpK-LA-Ubp"/>
-                                            <segue destination="Xs4-IY-h31" kind="presentation" identifier="Inventory" id="eA1-YY-h9D"/>
+                                            <segue destination="xQW-km-rgA" kind="presentation" id="8IX-c6-Pvh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnZ-j7-A9w">
@@ -83,7 +83,7 @@
         <!--Inventory-->
         <scene sceneID="0D4-pa-ZUr">
             <objects>
-                <collectionViewController storyboardIdentifier="inventoryCVC" id="Xs4-IY-h31" customClass="InventoryCollectionViewController" customModule="I_ll_Serve_Soup" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="InventoryCollectionViewController" id="Xs4-IY-h31" customClass="InventoryCollectionViewController" customModule="I_ll_Serve_Soup" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cPI-ma-H6s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,6 +102,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
+                                <color key="backgroundColor" red="0.71046560400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="kW2-PN-BtY" kind="show" identifier="Edit" id="5wf-vy-ZiG"/>
                                 </connections>
@@ -133,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-yz-Qwd">
-                                <rect key="frame" x="16" y="40" width="343" height="292"/>
+                                <rect key="frame" x="16" y="84" width="343" height="292"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5B-Kw-ZFF">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -200,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mxs-yq-2pc">
-                                <rect key="frame" x="16" y="40" width="343" height="280"/>
+                                <rect key="frame" x="16" y="84" width="343" height="280"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-yR-Any">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -247,6 +248,7 @@
                                                 <state key="normal" title="Sign out"/>
                                                 <connections>
                                                     <action selector="signOutButtonTapped:" destination="leo-Hp-BbF" eventType="touchUpInside" id="73d-s0-391"/>
+                                                    <segue destination="1b8-jt-Xqq" kind="presentation" id="KE1-kZ-eLU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -375,7 +377,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yDN-h3-nL7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xQW-km-rgA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="xQW-km-rgA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o0i-Dj-iKC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -391,7 +393,4 @@
             <point key="canvasLocation" x="-167.19999999999999" y="666.11694152923542"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="eA1-YY-h9D"/>
-    </inferredMetricsTieBreakers>
 </document>
