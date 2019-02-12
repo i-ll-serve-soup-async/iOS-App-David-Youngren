@@ -32,6 +32,16 @@ struct User: Codable {
     }
 }
 
+struct UserLogIn: Codable {
+    var email: String
+    var password: String
+    
+    init(email: String, password: String) {
+        self.email = email
+        self.password = password
+    }
+}
+
 struct UserResponse: Codable {
     var token: String?
     var id: Int
