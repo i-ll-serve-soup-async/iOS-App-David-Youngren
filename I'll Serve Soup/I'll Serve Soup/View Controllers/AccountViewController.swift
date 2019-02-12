@@ -15,7 +15,8 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func signOutButtonTapped(_ sender: UIButton) {
-        
+        UserDefaults.standard.set(false, forKey: .isLoggedIn)
+        RootSwitch.updateVC()
     }
     
     @IBAction func resetPasswordTapped(_ sender: UIButton) {

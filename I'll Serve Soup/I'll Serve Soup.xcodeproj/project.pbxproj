@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7731D92622126DD500155B5D /* RootSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7731D92522126DD500155B5D /* RootSwitch.swift */; };
+		779EF86A2212370800B315D5 /* SettingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779EF8692212370800B315D5 /* SettingsKeys.swift */; };
 		77C409582211DBED0003B2DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409572211DBED0003B2DD /* AppDelegate.swift */; };
 		77C4095D2211DBED0003B2DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C4095B2211DBED0003B2DD /* Main.storyboard */; };
 		77C4095F2211DBEE0003B2DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77C4095E2211DBEE0003B2DD /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7731D92522126DD500155B5D /* RootSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSwitch.swift; sourceTree = "<group>"; };
+		779EF8692212370800B315D5 /* SettingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsKeys.swift; sourceTree = "<group>"; };
 		77C409542211DBED0003B2DD /* I'll Serve Soup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I'll Serve Soup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C409572211DBED0003B2DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77C4095C2211DBED0003B2DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				77C409732211DEBA0003B2DD /* View Controllers */,
 				77C409782211FDAD0003B2DD /* Models */,
 				77C4097D2211FDFB0003B2DD /* Model Controllers */,
+				779EF8692212370800B315D5 /* SettingsKeys.swift */,
+				7731D92522126DD500155B5D /* RootSwitch.swift */,
 			);
 			path = "I'll Serve Soup";
 			sourceTree = "<group>";
@@ -183,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779EF86A2212370800B315D5 /* SettingsKeys.swift in Sources */,
 				77C4097A2211FDCD0003B2DD /* UserController.swift in Sources */,
 				77C4096C2211DE6C0003B2DD /* SignUpViewController.swift in Sources */,
 				77C409702211DE930003B2DD /* AccountViewController.swift in Sources */,
@@ -191,6 +198,7 @@
 				77C409772211FD050003B2DD /* Item.swift in Sources */,
 				77C4096A2211DE5E0003B2DD /* LoginViewController.swift in Sources */,
 				77C409582211DBED0003B2DD /* AppDelegate.swift in Sources */,
+				7731D92622126DD500155B5D /* RootSwitch.swift in Sources */,
 				77C4097C2211FDEA0003B2DD /* ItemController.swift in Sources */,
 				77C409752211FC530003B2DD /* User.swift in Sources */,
 			);

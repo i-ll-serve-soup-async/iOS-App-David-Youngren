@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="602-jl-1HW">
             <objects>
-                <viewController id="1b8-jt-Xqq" customClass="LoginViewController" customModule="I_ll_Serve_Soup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logInVC" id="1b8-jt-Xqq" customClass="LoginViewController" customModule="I_ll_Serve_Soup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Re5-hd-Ts1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
         <!--Inventory-->
         <scene sceneID="0D4-pa-ZUr">
             <objects>
-                <collectionViewController id="Xs4-IY-h31" customClass="InventoryCollectionViewController" customModule="I_ll_Serve_Soup" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="inventoryCVC" id="Xs4-IY-h31" customClass="InventoryCollectionViewController" customModule="I_ll_Serve_Soup" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cPI-ma-H6s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-yz-Qwd">
-                                <rect key="frame" x="16" y="84" width="343" height="292"/>
+                                <rect key="frame" x="16" y="40" width="343" height="292"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5B-Kw-ZFF">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -200,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mxs-yq-2pc">
-                                <rect key="frame" x="16" y="84" width="343" height="280"/>
+                                <rect key="frame" x="16" y="40" width="343" height="280"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-yR-Any">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -392,6 +392,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WCr-wu-q7o"/>
+        <segue reference="eA1-YY-h9D"/>
     </inferredMetricsTieBreakers>
 </document>
