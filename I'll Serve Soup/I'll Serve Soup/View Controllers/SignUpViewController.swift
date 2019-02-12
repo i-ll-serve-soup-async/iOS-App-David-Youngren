@@ -41,6 +41,16 @@ class SignUpViewController: UIViewController {
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
+        userController.createUser(firstName: firstName, lastName: lastName, role: role, email: email, password: password) { (error) in
+            if let error = error {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+                self.performSegue(withIdentifier: "SignedUp", sender: self)
+            }
+        }
     }
     
     func displayAlert(title: String, message: String) {
@@ -59,5 +69,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
+    let userController = UserController()
 
 }

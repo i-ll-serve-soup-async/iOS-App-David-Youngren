@@ -10,8 +10,6 @@ import Foundation
 
 class UserController {
     
-//    var user = User?
-    
     let baseURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api")!
     
     func createUser(firstName: String, lastName: String, role: String, email: String, password: String, completion: @escaping (Error?) -> Void) {
@@ -32,12 +30,26 @@ class UserController {
             return
         }
         
-        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {
                 print(error)
                 completion(error)
                 return
             }
+            let decoder = JSONDecoder()
+            
+            do {
+                let decodedData = try decoder.decode(UserResponse.self, from: data!)
+                let defaults = UserDefaults.standard
+                print(decodedData.token)
+                defaults.set(decodedData.token, forKey: .token)
+                defaults.set(decodedData.id, forKey: .id)
+            } catch {
+                print("There was an error receiving from the server: \(error)")
+                completion(error)
+                return
+            }
+            
             DispatchQueue.main.async {
                 completion(nil)
             }
@@ -77,4 +89,6 @@ class UserController {
 //            }
 //        }.resume()
 //    }
+    
+    
 }

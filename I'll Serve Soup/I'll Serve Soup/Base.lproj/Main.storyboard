@@ -344,6 +344,7 @@
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="signUpButtonTapped:" destination="g8p-vs-PvG" eventType="touchUpInside" id="fEI-Lu-Khu"/>
+                                            <segue destination="xQW-km-rgA" kind="show" identifier="SignedUp" id="Wr2-NH-SSy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -393,4 +394,7 @@
             <point key="canvasLocation" x="-167.19999999999999" y="666.11694152923542"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Wr2-NH-SSy"/>
+    </inferredMetricsTieBreakers>
 </document>

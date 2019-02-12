@@ -35,3 +35,9 @@ struct User: Codable {
         case password = "password"
     }
 }
+
+struct UserResponse: Codable {
+    var token: String
+    var id: Int
+    var email: String
+}
