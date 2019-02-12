@@ -344,7 +344,6 @@
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="signUpButtonTapped:" destination="g8p-vs-PvG" eventType="touchUpInside" id="fEI-Lu-Khu"/>
-                                            <segue destination="xQW-km-rgA" kind="show" identifier="SignedUp" id="Wr2-NH-SSy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -369,9 +368,11 @@
                         <outlet property="roleTextField" destination="FeA-Wk-u0I" id="qlB-AB-OJ5"/>
                         <outlet property="signUpButton" destination="a2z-2D-igE" id="KgG-VH-q8p"/>
                         <outlet property="signUpTitle" destination="aG6-rU-7f2" id="zJM-pc-wtf"/>
+                        <segue destination="nrQ-J0-SnK" kind="unwind" identifier="FinishSignUp" unwindAction="unwindToInventoryCVCWithSegue:" id="nVE-zJ-6NJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klK-Pf-aiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nrQ-J0-SnK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="578" y="-79"/>
         </scene>
@@ -394,7 +395,4 @@
             <point key="canvasLocation" x="-167.19999999999999" y="666.11694152923542"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Wr2-NH-SSy"/>
-    </inferredMetricsTieBreakers>
 </document>

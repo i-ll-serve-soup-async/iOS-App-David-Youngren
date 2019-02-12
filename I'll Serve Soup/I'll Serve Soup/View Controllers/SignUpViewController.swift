@@ -44,11 +44,17 @@ class SignUpViewController: UIViewController {
         userController.createUser(firstName: firstName, lastName: lastName, role: role, email: email, password: password) { (error) in
             if let error = error {
                 print(error)
+                DispatchQueue.main.async {
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                    self.displayAlert(title: "Server Error", message: "There was an error retrieving data from the server. Please try again later.")
+                }
+                return
             }
             DispatchQueue.main.async {
                 activityIndicator.stopAnimating()
                 activityIndicator.removeFromSuperview()
-                self.performSegue(withIdentifier: "SignedUp", sender: self)
+                self.performSegue(withIdentifier: "FinishSignUp", sender: self)
             }
         }
     }

@@ -15,7 +15,10 @@ class UserController {
     func createUser(firstName: String, lastName: String, role: String, email: String, password: String, completion: @escaping (Error?) -> Void) {
         let newUser = User(firstName: firstName, lastName: lastName, email: email, role: role, password: password)
         
-        let registerURL = baseURL.appendingPathComponent("staff/register")
+        let staffURL = baseURL.appendingPathComponent("staff")
+        let registerURL = staffURL.appendingPathComponent("register")
+        
+//        let jsonURL = registerURL.appendingPathExtension("json")
         
         var urlRequest = URLRequest(url: registerURL)
         urlRequest.httpMethod = "POST"
@@ -36,22 +39,28 @@ class UserController {
                 completion(error)
                 return
             }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            print(data)
+            
             let decoder = JSONDecoder()
             
             do {
-                let decodedData = try decoder.decode(UserResponse.self, from: data!)
+                let decodedData = try decoder.decode(UserResponse.self, from: data)
+                let token = decodedData.token
+                print(token)
+                let id = decodedData.id
                 let defaults = UserDefaults.standard
-                print(decodedData.token)
-                defaults.set(decodedData.token, forKey: .token)
-                defaults.set(decodedData.id, forKey: .id)
+                defaults.set(token, forKey: .token)
+                defaults.set(id, forKey: .id)
+                completion(nil)
             } catch {
                 print("There was an error receiving from the server: \(error)")
                 completion(error)
                 return
-            }
-            
-            DispatchQueue.main.async {
-                completion(nil)
             }
         }.resume()
     }
