@@ -8,10 +8,14 @@
 
 import Foundation
 
-struct Item {
+struct Item: Codable {
     var name: String
     var amount: Float
     var unit: String
     var imageURL: String
     var categoryID: Int
+}
+
+struct Items: Codable {
+    var items: [Item]
 }

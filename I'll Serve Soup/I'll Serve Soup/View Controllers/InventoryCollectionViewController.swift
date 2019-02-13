@@ -9,31 +9,42 @@
 import UIKit
 
 class InventoryCollectionViewController: UICollectionViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        itemController.getItems { (error) in
+            if let error = error {
+                print("There was error displaying the data: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
-
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return itemController.items.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath)
-    
-        // Configure the cell
-    
-        return cell
+        guard let itemCell = cell as? ItemCollectionViewCell else { return cell }
+        let item = itemController.items[indexPath.row]
+        itemCell.itemNameLabel.text = item.name
+        itemCell.itemAmountLabel.text = "\(item.amount)"
+        return itemCell
     }
 
     @IBAction func unwindToInventoryCVC(segue: UIStoryboardSegue) { }
+    
+    let itemController = ItemController()
+}
+
+extension InventoryCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.bounds.width / 2
+        let height = width
+        return CGSize(width: width, height: height)
+    }
 }

@@ -89,21 +89,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ys6-O8-ekK">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="167" height="157"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="Ylv-5s-s1i">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="Ylv-5s-s1i" customClass="ItemCollectionViewCell" customModule="I_ll_Serve_Soup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="167" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="167" height="157"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="kG7-Qa-S8D">
+                                            <rect key="frame" x="62" y="68" width="82" height="85"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-Gx-0KB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lz9-Od-0LD">
+                                                    <rect key="frame" x="0.0" y="27" width="48" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
                                 </view>
-                                <color key="backgroundColor" red="0.71046560400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kG7-Qa-S8D" firstAttribute="centerY" secondItem="Ylv-5s-s1i" secondAttribute="centerY" id="F5H-Tj-nsd"/>
+                                    <constraint firstItem="kG7-Qa-S8D" firstAttribute="centerX" secondItem="Ylv-5s-s1i" secondAttribute="centerX" id="KQ1-RJ-Tav"/>
+                                </constraints>
                                 <connections>
+                                    <outlet property="itemAmountLabel" destination="Lz9-Od-0LD" id="gde-KZ-AK4"/>
+                                    <outlet property="itemNameLabel" destination="0rs-Gx-0KB" id="o6V-DJ-kQW"/>
                                     <segue destination="kW2-PN-BtY" kind="show" identifier="Edit" id="5wf-vy-ZiG"/>
                                 </connections>
                             </collectionViewCell>

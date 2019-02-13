@@ -109,39 +109,5 @@ class UserController {
         }.resume()
     }
     
-//    func fetchUser(completion: @escaping (Error?) -> Void) {
-//
-//        let staffURL = baseURL.appendingPathComponent("staff")
-//
-//        guard let id = UserDefaults.standard.string(forKey: .id) else { return }
-//
-//        let idURL = staffURL.appendingPathComponent(":\(id)")
-//
-//        URLSession.shared.dataTask(with: idURL) { (data, response, error) in
-//            if let error = error {
-//                print("There was an error fetching user information: error")
-//                completion(nil)
-//                return
-//            }
-//
-//            guard let data = data else {
-//                print("There was an error retrieving data.")
-//                completion(nil)
-//                return
-//            }
-//
-//            do {
-//                let decoder = JSONDecoder()
-//                let decodedUser = try decoder.decode([User].self, from: data)
-//                self.user = decodedUser.map({  })
-//                completion(nil)
-//            } catch {
-//                print(error)
-//                completion(error)
-//                return
-//            }
-//        }.resume()
-//    }
-    
     let defaults = UserDefaults.standard
 }
