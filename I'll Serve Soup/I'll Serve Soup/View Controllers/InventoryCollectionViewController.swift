@@ -38,6 +38,16 @@ class InventoryCollectionViewController: UICollectionViewController {
         return itemCell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Edit" {
+            guard let editVC = segue.destination as? ItemViewController,
+            let cell = sender as? UICollectionViewCell,
+            let index = collectionView.indexPath(for: cell) else { return }
+            let item = itemController.items[index.row]
+            editVC.item = item
+        }
+    }
+    
     func setAppearance() {
         accountButton.title = "👤"
     }

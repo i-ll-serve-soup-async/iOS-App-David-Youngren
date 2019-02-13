@@ -10,6 +10,11 @@ import UIKit
 
 class ItemViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return units.count
     }
@@ -30,11 +35,25 @@ class ItemViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         performSegue(withIdentifier: "UnwindFromItem", sender: self)
     }
     
+    func updateViews() {
+        if let item = item {
+            itemNameTextField.text = item.name
+            categoryTextField.text = String(item.categoryID)
+            amountTextField.text = String(item.amount)
+            navigationItem.title = "Edit \(item.name.capitalized)"
+        } else {
+            itemNameTextField.text = ""
+            categoryTextField.text = ""
+            amountTextField.text = ""
+            navigationItem.title = "Add Item"
+        }
+    }
+    
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     
-    
+    var item: Item?
     let units = ["lbs.", "oz."]
     
 }
