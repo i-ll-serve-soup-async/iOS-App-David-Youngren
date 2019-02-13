@@ -12,12 +12,6 @@ class ItemController {
     
     var items: [Item] = []
     
-    var testItems: [Item] = [
-        Item(name: "Bananas", amount: 200, categoryID: 1, id: 1),
-        Item(name: "Strawberries", amount: 50, categoryID: 2, id: 2),
-        Item(name: "Potatoes", amount: 250, categoryID: 3, id: 3)
-    ]
-    
     let baseURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api")!
     
     let tokenValue = UserDefaults.standard.string(forKey: .token)
@@ -31,6 +25,7 @@ class ItemController {
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        print(tokenValue!)
         
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {
@@ -53,6 +48,23 @@ class ItemController {
                 print(error)
                 completion(error)
                 return
+            }
+        }.resume()
+    }
+    
+    func loadImages(item: Item, completion: @escaping (Data?) -> Void) {
+
+        guard let urlString = item.imageURL else { return }
+        let url = URL(string: urlString)!
+
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print("There was an error retrieving an image: \(error)")
+                completion(nil)
+                return
+            }
+            DispatchQueue.main.async {
+                completion(data)
             }
         }.resume()
     }
@@ -107,6 +119,5 @@ class ItemController {
 
 
     }
-    
     
 }

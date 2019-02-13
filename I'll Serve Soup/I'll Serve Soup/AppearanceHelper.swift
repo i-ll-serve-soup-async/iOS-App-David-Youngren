@@ -15,7 +15,9 @@ enum AppearanceHelper {
     static var red = UIColor(red: 200/255, green: 0/255, blue: 21/255, alpha: 1)
     
     static func generalAppearance() {
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
+        let titleAtts: [NSAttributedString.Key: Any] = [.foregroundColor: darkGreen]
+        UINavigationBar.appearance().titleTextAttributes = titleAtts
+        UINavigationBar.appearance().tintColor = red
     }
+    
 }

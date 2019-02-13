@@ -104,18 +104,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="167" height="157"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="kG7-Qa-S8D">
-                                            <rect key="frame" x="62" y="68" width="82" height="85"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dch-yc-qEO">
+                                            <rect key="frame" x="0.0" y="0.0" width="167" height="157"/>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="kG7-Qa-S8D">
+                                            <rect key="frame" x="62" y="59.5" width="43.5" height="38"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-Gx-0KB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="43.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lz9-Od-0LD">
-                                                    <rect key="frame" x="0.0" y="27" width="48" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="23.5" width="43.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -124,10 +127,15 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="Dch-yc-qEO" firstAttribute="leading" secondItem="Ylv-5s-s1i" secondAttribute="leading" id="1Zz-Kd-Dr6"/>
                                     <constraint firstItem="kG7-Qa-S8D" firstAttribute="centerY" secondItem="Ylv-5s-s1i" secondAttribute="centerY" id="F5H-Tj-nsd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dch-yc-qEO" secondAttribute="bottom" id="ImI-u7-pwr"/>
                                     <constraint firstItem="kG7-Qa-S8D" firstAttribute="centerX" secondItem="Ylv-5s-s1i" secondAttribute="centerX" id="KQ1-RJ-Tav"/>
+                                    <constraint firstItem="Dch-yc-qEO" firstAttribute="top" secondItem="Ylv-5s-s1i" secondAttribute="top" id="c7X-EE-8h5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dch-yc-qEO" secondAttribute="trailing" id="u9q-tH-YHX"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="cellImageView" destination="Dch-yc-qEO" id="PRd-fq-YJG"/>
                                     <outlet property="itemAmountLabel" destination="Lz9-Od-0LD" id="gde-KZ-AK4"/>
                                     <outlet property="itemNameLabel" destination="0rs-Gx-0KB" id="o6V-DJ-kQW"/>
                                     <segue destination="kW2-PN-BtY" kind="show" identifier="Edit" id="5wf-vy-ZiG"/>
@@ -140,7 +148,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Inventory" id="xWh-Ev-Opg">
-                        <barButtonItem key="rightBarButtonItem" title="Account" id="sVS-VV-gJr">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="sVS-VV-gJr">
                             <connections>
                                 <segue destination="leo-Hp-BbF" kind="show" identifier="Account" id="2Oc-RL-JdS"/>
                             </connections>

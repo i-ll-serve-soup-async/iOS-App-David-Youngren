@@ -32,9 +32,18 @@ class InventoryCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath)
         guard let itemCell = cell as? ItemCollectionViewCell else { return cell }
         let item = itemController.items[indexPath.row]
-        itemCell.itemNameLabel.text = item.name
+        itemCell.itemNameLabel.text = item.name.capitalized
         itemCell.itemAmountLabel.text = "\(item.amount)"
-        itemCell.backgroundColor = AppearanceHelper.pink
+        itemCell.backgroundColor = AppearanceHelper.darkGreen
+        itemCell.itemNameLabel.textColor = .white
+        itemCell.itemAmountLabel.textColor = .white
+        itemController.loadImages(item: item) { (data) in
+            guard let data = data else { return }
+            
+            let image = UIImage(data: data)
+            itemCell.cellImageView.image = image
+            itemCell.cellImageView.alpha = 0.6
+        }
         return itemCell
     }
     
@@ -49,7 +58,7 @@ class InventoryCollectionViewController: UICollectionViewController {
     }
     
     func setAppearance() {
-        accountButton.title = "👤"
+        accountButton.title = "Account"
     }
 
     @IBAction func unwindToInventoryCVC(segue: UIStoryboardSegue) { }

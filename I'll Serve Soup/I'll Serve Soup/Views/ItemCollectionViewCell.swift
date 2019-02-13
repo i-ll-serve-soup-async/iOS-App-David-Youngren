@@ -12,5 +12,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemAmountLabel: UILabel!
-
+    @IBOutlet weak var cellImageView: UIImageView!
+    
 }

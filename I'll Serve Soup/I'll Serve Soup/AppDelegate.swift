@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         AppearanceHelper.generalAppearance()
         
-        if let token = UserDefaults.standard.string(forKey: .token) {
+        if UserDefaults.standard.string(forKey: .token) != nil {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let initialVC = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
             self.window?.rootViewController = initialVC

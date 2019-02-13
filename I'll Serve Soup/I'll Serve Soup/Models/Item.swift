@@ -12,12 +12,14 @@ struct Item: Codable {
     let name: String
     let amount: Int
     let categoryID: Int
+    let imageURL: String?
     var id: Int?
 
-    init(name: String, amount: Int, categoryID: Int, id: Int? = nil) {
+    init(name: String, amount: Int, categoryID: Int, imageURL: String? = nil, id: Int? = nil) {
         self.name = name
         self.amount = amount
         self.categoryID = categoryID
+        self.imageURL = imageURL
         self.id = id
     }
 }
