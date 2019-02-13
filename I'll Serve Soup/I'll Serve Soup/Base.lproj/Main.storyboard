@@ -74,9 +74,11 @@
                         <outlet property="passwordTextField" destination="sKV-C9-67T" id="UhT-cp-rID"/>
                         <outlet property="signUpButton" destination="BnZ-j7-A9w" id="LO7-p6-PoC"/>
                         <outlet property="usernameTextField" destination="I2H-fh-Tkh" id="3hy-Im-CDa"/>
+                        <segue destination="hnx-UQ-u1z" kind="unwind" identifier="FinishLogIn" unwindAction="unwindToInventoryCVCWithSegue:" id="8MX-lG-6A5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9t-JV-YRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hnx-UQ-u1z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-153" y="-80"/>
         </scene>

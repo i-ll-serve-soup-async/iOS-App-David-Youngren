@@ -59,7 +59,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func displayAlert(title: String, message: String) {
+    private func displayAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertVC.addAction(alertAction)
