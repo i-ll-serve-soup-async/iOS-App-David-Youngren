@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773435C92214933200310F2F /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773435C82214933200310F2F /* AppearanceHelper.swift */; };
 		777935A922138AB500C1DC4F /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777935A822138AB500C1DC4F /* ItemCollectionViewCell.swift */; };
 		779EF86A2212370800B315D5 /* SettingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779EF8692212370800B315D5 /* SettingsKeys.swift */; };
 		77C409582211DBED0003B2DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409572211DBED0003B2DD /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		773435C82214933200310F2F /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		777935A822138AB500C1DC4F /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		779EF8692212370800B315D5 /* SettingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsKeys.swift; sourceTree = "<group>"; };
 		77C409542211DBED0003B2DD /* I'll Serve Soup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I'll Serve Soup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 				77C409782211FDAD0003B2DD /* Models */,
 				77C4097D2211FDFB0003B2DD /* Model Controllers */,
 				777935AA2213946D00C1DC4F /* Views */,
+				773435C82214933200310F2F /* AppearanceHelper.swift */,
 			);
 			path = "I'll Serve Soup";
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				77C4096A2211DE5E0003B2DD /* LoginViewController.swift in Sources */,
 				77C409582211DBED0003B2DD /* AppDelegate.swift in Sources */,
 				777935A922138AB500C1DC4F /* ItemCollectionViewCell.swift in Sources */,
+				773435C92214933200310F2F /* AppearanceHelper.swift in Sources */,
 				77C4097C2211FDEA0003B2DD /* ItemController.swift in Sources */,
 				77C409752211FC530003B2DD /* User.swift in Sources */,
 			);

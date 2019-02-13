@@ -13,7 +13,7 @@ struct Item: Codable {
     let amount: Int
     let categoryID: Int
     var id: Int?
-    
+
     init(name: String, amount: Int, categoryID: Int, id: Int? = nil) {
         self.name = name
         self.amount = amount
