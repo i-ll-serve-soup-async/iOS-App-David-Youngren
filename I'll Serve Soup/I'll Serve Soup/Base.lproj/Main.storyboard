@@ -146,6 +146,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="accountButton" destination="sVS-VV-gJr" id="tQO-d8-1SI"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4I-oM-clc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -24,14 +24,13 @@ class ItemController {
     let idValue = UserDefaults.standard.value(forKey: .id)
     
     func getItems(completion: @escaping (Error?) -> Void) {
-        
         let itemsURL = baseURL.appendingPathComponent("items")
         
         var urlRequest = URLRequest(url: itemsURL)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-        urlRequest.addValue("\(String(describing: tokenValue))", forHTTPHeaderField: "authorization")
-        print(tokenValue!)
+        urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {

@@ -12,6 +12,7 @@ class InventoryCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setAppearance()
         itemController.getItems { (error) in
             if let error = error {
                 print("There was error displaying the data: \(error)")
@@ -24,17 +25,21 @@ class InventoryCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemController.testItems.count
+        return itemController.items.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath)
         guard let itemCell = cell as? ItemCollectionViewCell else { return cell }
-        let item = itemController.testItems[indexPath.row]
+        let item = itemController.items[indexPath.row]
         itemCell.itemNameLabel.text = item.name
         itemCell.itemAmountLabel.text = "\(item.amount)"
         itemCell.backgroundColor = AppearanceHelper.pink
         return itemCell
+    }
+    
+    func setAppearance() {
+        accountButton.title = "👤"
     }
 
     @IBAction func unwindToInventoryCVC(segue: UIStoryboardSegue) { }
@@ -42,6 +47,7 @@ class InventoryCollectionViewController: UICollectionViewController {
     let itemController = ItemController()
     let edgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     let itemsPerRow: CGFloat = 2
+    @IBOutlet weak var accountButton: UIBarButtonItem!
 }
 
 extension InventoryCollectionViewController: UICollectionViewDelegateFlowLayout {
