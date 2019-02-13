@@ -9,13 +9,19 @@
 import Foundation
 
 struct Item: Codable {
-    var name: String
-    var amount: Float
-    var unit: String
-    var imageURL: String
-    var categoryID: Int
+    let name: String
+    let amount: Int
+    let categoryID: Int
+    var id: Int?
+    
+    init(name: String, amount: Int, categoryID: Int, id: Int? = nil) {
+        self.name = name
+        self.amount = amount
+        self.categoryID = categoryID
+        self.id = id
+    }
 }
 
-struct Items: Codable {
-    var items: [Item]
+struct ItemsResponse: Codable {
+    let items: [Item]
 }

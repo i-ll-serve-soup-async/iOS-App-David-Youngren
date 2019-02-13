@@ -12,12 +12,6 @@ class ItemController {
     
     var items: [Item] = []
     
-//    let testItems: [Item] = [
-//        Item(name: "carrots", amount: 200, unit: "lbs", imageURL: "url", categoryID: 2),
-//        Item(name: "bananas", amount: 200, unit: "lbs", imageURL: "url", categoryID: 2),
-//        Item(name: "yogurt", amount: 150, unit: "lbs", imageURL: "url", categoryID: 2),
-//                             ]
-    
     let baseURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api")!
     
     let tokenValue = UserDefaults.standard.string(forKey: .token)
@@ -30,7 +24,7 @@ class ItemController {
         var urlRequest = URLRequest(url: itemsURL)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-        urlRequest.addValue("\(String(describing: tokenValue))", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("\(String(describing: tokenValue))", forHTTPHeaderField: "authorization")
         
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {
@@ -45,14 +39,59 @@ class ItemController {
             
             let decoder = JSONDecoder()
             do {
-                let decodedData = try decoder.decode([Item].self, from: data)
-                self.items = decodedData
+                let decodedData = try decoder.decode(ItemsResponse.self, from: data)
+                let decodedItems = decodedData.items
+                self.items = decodedItems
                 completion(nil)
             } catch {
-                print("There was an retrieving data from the server: \(NSError())")
+                print(error)
                 completion(error)
                 return
             }
+        }.resume()
+    }
+    
+    func addItem(name: String, amount: Int, category: Int, completion: @escaping (Error?) -> Void) {
+        
+        var newItem = Item(name: name, amount: amount, categoryID: category)
+        
+        let itemsURL = baseURL.appendingPathComponent("items")
+        
+        var urlRequest = URLRequest(url: itemsURL)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
+        urlRequest.addValue(String(describing: tokenValue), forHTTPHeaderField: "authorization")
+        
+        let encoder = JSONEncoder()
+        do {
+            urlRequest.httpBody = try encoder.encode(newItem)
+        } catch {
+            print(NSError())
+            completion(error)
+            return
         }
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
+            if let error = error {
+                print("There was an error sending data to the server: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(NSError())
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let decodedData = try decoder.decode(Int.self, from: data)
+                newItem.id = decodedData
+            } catch {
+                print("There was an error retrieving data from the server: \(error)")
+                completion(error)
+                return
+            }
+        }.resume()
     }
 }
