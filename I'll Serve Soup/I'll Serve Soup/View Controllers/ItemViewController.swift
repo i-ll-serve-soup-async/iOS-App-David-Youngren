@@ -37,7 +37,7 @@ class ItemViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     func updateViews() {
         if let item = item {
-            itemNameTextField.text = item.name
+            itemNameTextField.text = item.name.capitalized
             categoryTextField.text = String(item.categoryID)
             amountTextField.text = String(item.amount)
             navigationItem.title = "Edit \(item.name.capitalized)"
@@ -47,6 +47,10 @@ class ItemViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             amountTextField.text = ""
             navigationItem.title = "Add Item"
         }
+    }
+    
+    func setAppearance() {
+        
     }
     
     @IBOutlet weak var itemNameTextField: UITextField!
