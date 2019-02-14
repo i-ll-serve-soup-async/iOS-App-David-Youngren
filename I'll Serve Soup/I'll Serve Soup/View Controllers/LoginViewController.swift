@@ -43,8 +43,9 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 activityIndicator.stopAnimating()
                 activityIndicator.removeFromSuperview()
+                
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else { return }
+                guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "InventoryCollectionViewController") as? InventoryCollectionViewController else { return }
                 self.present(destinationVC, animated: true, completion: nil)
             }
         }

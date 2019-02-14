@@ -43,7 +43,7 @@ struct UserLogIn: Codable {
 }
 
 struct UserResponse: Codable {
-    var token: String?
+    var token: String
     var id: Int
     var email: String
 }

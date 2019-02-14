@@ -14,23 +14,16 @@ class ItemController {
     
     let baseURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api")!
     
-    let tokenValue = UserDefaults.standard.string(forKey: .token)
     let idValue = UserDefaults.standard.value(forKey: .id)
     
-    func getItems(completion: @escaping (Error?) -> Void) {
+    func getItems(token: String, completion: @escaping (Error?) -> Void) {
         let itemsURL = baseURL.appendingPathComponent("items")
-        
-        guard let token = tokenValue else {
-            completion(NSError())
-            return
-        }
         
         var urlRequest = URLRequest(url: itemsURL)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.addValue(token, forHTTPHeaderField: "authorization")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-        print(tokenValue!)
         
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             if let error = error {
@@ -75,7 +68,7 @@ class ItemController {
     }
     
     func addItem(name: String, amount: Int, category: Int, unit: String, completion: @escaping (Error?) -> Void) {
-        
+        let tokenValue = UserDefaults.standard.string(forKey: .token)
         let newItem = Item(name: name, amount: amount, categoryID: category, unit: unit)
         print(newItem)
 
@@ -107,7 +100,7 @@ class ItemController {
     }
 
     func updateItem(item: Item, name: String, amount: Int, category: Int, unit: String, completion: @escaping (Error?) -> Void) {
-        
+        let tokenValue = UserDefaults.standard.string(forKey: .token)
         let updatedItem = ItemPUT(name: name, amount: amount, categoryID: category, unit: unit)
         guard let itemID = item.id else {
             completion(NSError())
@@ -142,6 +135,7 @@ class ItemController {
     }
     
     func deleteItem(item: Item, completion: @escaping (Error?) -> Void) {
+        let tokenValue = UserDefaults.standard.string(forKey: .token)
         guard let itemID = item.id else {
             completion(NSError())
             return }

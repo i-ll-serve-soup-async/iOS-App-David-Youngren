@@ -10,10 +10,22 @@ import UIKit
 
 class InventoryCollectionViewController: UICollectionViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if UserDefaults.standard.string(forKey: .token) != nil && UserDefaults.standard.string(forKey: .token) != "" {
+            tokenString = UserDefaults.standard.string(forKey: .token)
+        } else if userController.token != nil {
+            tokenString = userController.token
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setAppearance()
-        itemController.getItems { (error) in
+        
+        guard let token = tokenString else { return }
+        print(token)
+        itemController.getItems(token: token) { (error) in
             if let _ = error {
                 print("There was error displaying the data")
                 UserDefaults.standard.removeObject(forKey: .token)
@@ -83,6 +95,8 @@ class InventoryCollectionViewController: UICollectionViewController {
 
     @IBAction func unwindToInventoryCVC(segue: UIStoryboardSegue) { }
     
+    var tokenString: String?
+    let userController = UserController()
     let itemController = ItemController()
     let edgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     let itemsPerRow: CGFloat = 2

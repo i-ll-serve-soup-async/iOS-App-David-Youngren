@@ -49,6 +49,7 @@ class UserController {
                 let decodedData = try decoder.decode(UserResponse.self, from: data)
                 let token = decodedData.token
                 let id = decodedData.id
+                self.token = token
                 self.defaults.set(token, forKey: .token)
                 self.defaults.set(id, forKey: .id)
                 completion(nil)
@@ -99,6 +100,7 @@ class UserController {
                 let decodedData = try decoder.decode(UserResponse.self, from: data)
                 let token = decodedData.token
                 let id = decodedData.id
+                self.token = token
                 self.defaults.set(token, forKey: .token)
                 self.defaults.set(id, forKey: .id)
                 completion(nil)
@@ -110,5 +112,6 @@ class UserController {
         }.resume()
     }
     
+    var token: String?
     let defaults = UserDefaults.standard
 }
