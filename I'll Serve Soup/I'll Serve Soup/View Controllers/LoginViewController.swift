@@ -54,10 +54,11 @@ class LoginViewController: UIViewController {
     func setAppearance() {
         usernameTextField.font = AppearanceHelper.textFieldFont()
         passwordTextField.font = AppearanceHelper.textFieldFont()
+        AppearanceHelper.addShadow(views: [usernameTextField, passwordTextField, loginButton])
         loginButton.tintColor = AppearanceHelper.pink
         loginButton.backgroundColor = AppearanceHelper.red
         loginButton.layer.cornerRadius = 8
-        loginButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        loginButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
         loginButton.titleLabel?.font = AppearanceHelper.systemFont(size: 25, style: .body)
         signUpButton.tintColor = .gray
     }

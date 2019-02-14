@@ -10,25 +10,12 @@ import UIKit
 
 class InventoryCollectionViewController: UICollectionViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if UserDefaults.standard.string(forKey: .token) != nil && UserDefaults.standard.string(forKey: .token) != "" {
-            tokenString = UserDefaults.standard.string(forKey: .token)
-        } else if userController.token != nil {
-            tokenString = userController.token
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setAppearance()
-        
-        guard let token = tokenString else { return }
-        print(token)
-        itemController.getItems(token: token) { (error) in
+        itemController.getItems() { (error) in
             if let _ = error {
                 print("There was error displaying the data")
-                UserDefaults.standard.removeObject(forKey: .token)
                 self.signOut()
             }
             DispatchQueue.main.async {
@@ -81,10 +68,12 @@ class InventoryCollectionViewController: UICollectionViewController {
     }
     
     func signOut() {
-        UserDefaults.standard.removeObject(forKey: .token)
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let destinationViewController = mainStoryboard.instantiateViewController(withIdentifier: "logInVC") as? LoginViewController else { return }
-        present(destinationViewController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            UserDefaults.standard.removeObject(forKey: .token)
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            guard let destinationViewController = mainStoryboard.instantiateViewController(withIdentifier: "logInVC") as? LoginViewController else { return }
+            self.present(destinationViewController, animated: true, completion: nil)
+        }
     }
     
     

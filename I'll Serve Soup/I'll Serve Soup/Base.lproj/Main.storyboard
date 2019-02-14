@@ -244,6 +244,7 @@
                         <outlet property="deleteButton" destination="SAX-tj-goG" id="2S6-Jz-gsg"/>
                         <outlet property="itemNameTextField" destination="c5B-Kw-ZFF" id="2ft-EE-5ui"/>
                         <outlet property="unitTextField" destination="Pkt-Rh-ADT" id="y3P-nw-bkP"/>
+                        <outlet property="updateButton" destination="5iZ-NT-dOa" id="Ekw-Je-eSa"/>
                         <segue destination="3TD-W6-qXr" kind="unwind" identifier="UnwindFromItem" unwindAction="unwindToInventoryCVCWithSegue:" id="N8S-Ro-TfN"/>
                     </connections>
                 </viewController>

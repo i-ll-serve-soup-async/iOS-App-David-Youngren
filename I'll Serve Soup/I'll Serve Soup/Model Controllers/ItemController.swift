@@ -14,9 +14,12 @@ class ItemController {
     
     let baseURL = URL(string: "https://soup-kitchen-backend.herokuapp.com/api")!
     
+    let tokenValue = UserDefaults.standard.value(forKey: .token)
     let idValue = UserDefaults.standard.value(forKey: .id)
     
-    func getItems(token: String, completion: @escaping (Error?) -> Void) {
+    func getItems(completion: @escaping (Error?) -> Void) {
+        guard let token = tokenValue as? String else { return }
+        
         let itemsURL = baseURL.appendingPathComponent("items")
         
         var urlRequest = URLRequest(url: itemsURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 0.2)
@@ -40,8 +43,10 @@ class ItemController {
             do {
                 let decodedData = try decoder.decode(ItemsResponse.self, from: data)
                 let decodedItems = decodedData.items
-                self.items = decodedItems
-                completion(nil)
+                DispatchQueue.main.async {
+                    self.items = decodedItems
+                    completion(nil)
+                }
             } catch {
                 print(error)
                 completion(error)
@@ -68,7 +73,7 @@ class ItemController {
     }
     
     func addItem(name: String, amount: Int, category: Int, unit: String, completion: @escaping (Error?) -> Void) {
-        let tokenValue = UserDefaults.standard.string(forKey: .token)
+        guard let token = tokenValue as? String else { return }
         let newItem = Item(name: name, amount: amount, categoryID: category, unit: unit)
         print(newItem)
 
@@ -77,7 +82,7 @@ class ItemController {
         var urlRequest = URLRequest(url: itemsURL)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-        urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
+        urlRequest.addValue(token, forHTTPHeaderField: "authorization")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
 
         let encoder = JSONEncoder()
@@ -95,12 +100,14 @@ class ItemController {
                 completion(error)
                 return
             }
-            completion(nil)
+            DispatchQueue.main.async {
+                completion(nil)
+            }
         }.resume()
     }
 
     func updateItem(item: Item, name: String, amount: Int, category: Int, unit: String, completion: @escaping (Error?) -> Void) {
-        let tokenValue = UserDefaults.standard.string(forKey: .token)
+        guard let token = tokenValue as? String else { return }
         let updatedItem = ItemPUT(name: name, amount: amount, categoryID: category, unit: unit)
         guard let itemID = item.id else {
             completion(NSError())
@@ -112,7 +119,7 @@ class ItemController {
         var urlRequest = URLRequest(url: idURL)
         urlRequest.httpMethod = "PUT"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-        urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
+        urlRequest.addValue(token, forHTTPHeaderField: "authorization")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let encoder = JSONEncoder()
@@ -130,12 +137,14 @@ class ItemController {
                 completion(error)
                 return
             }
-            completion(nil)
+            DispatchQueue.main.async {
+                completion(nil)
+            }
         }.resume()
     }
     
     func deleteItem(item: Item, completion: @escaping (Error?) -> Void) {
-        let tokenValue = UserDefaults.standard.string(forKey: .token)
+        guard let token = tokenValue as? String else { return }
         guard let itemID = item.id else {
             completion(NSError())
             return }
@@ -147,7 +156,7 @@ class ItemController {
         
         urlRequest.httpMethod = "DELETE"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-        urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
+        urlRequest.addValue(token, forHTTPHeaderField: "authorization")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         
         URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
@@ -156,7 +165,9 @@ class ItemController {
                 completion(error)
                 return
             }
-            completion(nil)
+            DispatchQueue.main.async {
+                completion(nil)
+            }
         }.resume()
     }
 }

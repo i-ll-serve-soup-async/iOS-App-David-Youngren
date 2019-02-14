@@ -30,4 +30,13 @@ enum AppearanceHelper {
         return UIFontMetrics(forTextStyle: style).scaledFont(for: font)
     }
     
+    static func addShadow(views: [UIView]) {
+        for view in views {
+            view.layer.shadowColor = UIColor.gray.cgColor
+            view.layer.shadowRadius = 6
+            view.layer.shadowOpacity = 0.3
+            view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        }
+    }
+    
 }

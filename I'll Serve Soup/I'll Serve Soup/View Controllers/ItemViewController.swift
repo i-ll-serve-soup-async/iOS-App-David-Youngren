@@ -120,6 +120,7 @@ class ItemViewController: UIViewController {
             navigationItem.title = "Edit \(item.name.capitalized)"
             deleteButton.setTitle("Delete \(item.name) from inventory.", for: .normal)
             deleteButton.isEnabled = true
+            updateButton.title = "Update"
         } else {
             itemNameTextField.text = ""
             categoryTextField.text = ""
@@ -127,6 +128,7 @@ class ItemViewController: UIViewController {
             navigationItem.title = "Add Item"
             deleteButton.setTitle("", for: .normal)
             deleteButton.isEnabled = false
+            updateButton.title = "Save"
         }
     }
     
@@ -136,6 +138,7 @@ class ItemViewController: UIViewController {
         amountTextField.font = AppearanceHelper.textFieldFont()
         unitTextField.font = AppearanceHelper.textFieldFont()
         deleteButton.tintColor = .gray
+        AppearanceHelper.addShadow(views: [itemNameTextField, categoryTextField, amountTextField, unitTextField])
     }
     
     private func displayAlert(title: String, message: String) {
@@ -150,6 +153,7 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var unitTextField: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var updateButton: UIBarButtonItem!
     let activityIndicator = UIActivityIndicatorView(style: .gray)
     
     var item: Item?

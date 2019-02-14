@@ -79,12 +79,13 @@ class SignUpViewController: UIViewController {
         signUpTitle.font = AppearanceHelper.systemFont(size: 35, style: .title1)
         signUpTitle.textColor = AppearanceHelper.darkGreen
         signUpButton.titleLabel?.font = AppearanceHelper.systemFont(size: 25, style: .body)
-        signUpButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        signUpButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
         signUpButton.backgroundColor = AppearanceHelper.red
         signUpButton.layer.cornerRadius = 8
         signUpButton.tintColor = AppearanceHelper.pink
         signUpTitle.text = "Create Account"
         signUpButton.titleLabel?.text = "Sign Up"
+        AppearanceHelper.addShadow(views: [firstNameTextField, lastNameTextField, roleTextField, emailTextField, passwordTextField, passwordCheckTextField, signUpButton, signUpTitle])
     }
     
     @IBOutlet weak var signUpTitle: UILabel!

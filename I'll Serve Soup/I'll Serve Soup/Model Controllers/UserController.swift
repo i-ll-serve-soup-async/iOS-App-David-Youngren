@@ -49,10 +49,12 @@ class UserController {
                 let decodedData = try decoder.decode(UserResponse.self, from: data)
                 let token = decodedData.token
                 let id = decodedData.id
-                self.token = token
-                self.defaults.set(token, forKey: .token)
-                self.defaults.set(id, forKey: .id)
-                completion(nil)
+                DispatchQueue.main.async {
+                    self.token = token
+                    self.defaults.set(token, forKey: .token)
+                    self.defaults.set(id, forKey: .id)
+                    completion(nil)
+                }
             } catch {
                 print("There was an error receiving from the server: \(error)")
                 completion(error)
@@ -100,10 +102,12 @@ class UserController {
                 let decodedData = try decoder.decode(UserResponse.self, from: data)
                 let token = decodedData.token
                 let id = decodedData.id
-                self.token = token
-                self.defaults.set(token, forKey: .token)
-                self.defaults.set(id, forKey: .id)
-                completion(nil)
+                DispatchQueue.main.async {
+                    self.token = token
+                    self.defaults.set(token, forKey: .token)
+                    self.defaults.set(id, forKey: .id)
+                    completion(nil)
+                }
             } catch {
                 print("There was an error retrieving data from the server: \(error)")
                 completion(error)
