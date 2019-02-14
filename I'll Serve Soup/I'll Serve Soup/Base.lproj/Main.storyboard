@@ -165,11 +165,9 @@
                     <connections>
                         <outlet property="accountButton" destination="sVS-VV-gJr" id="tQO-d8-1SI"/>
                         <outlet property="signOutButton" destination="DUb-oI-t1G" id="VNH-3y-9Js"/>
-                        <segue destination="ubv-12-4DU" kind="unwind" identifier="Login" unwindAction="unwindToLoginWithSegue:" id="Z41-8E-WgM"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4I-oM-clc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ubv-12-4DU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="772" y="666.11694152923542"/>
         </scene>

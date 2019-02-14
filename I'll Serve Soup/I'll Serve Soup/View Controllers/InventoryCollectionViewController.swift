@@ -70,7 +70,9 @@ class InventoryCollectionViewController: UICollectionViewController {
     
     func signOut() {
         UserDefaults.standard.removeObject(forKey: .token)
-        self.performSegue(withIdentifier: "Login", sender: self)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let destinationViewController = mainStoryboard.instantiateViewController(withIdentifier: "logInVC") as? LoginViewController else { return }
+        present(destinationViewController, animated: true, completion: nil)
     }
     
     

@@ -28,6 +28,7 @@
 /* Begin PBXFileReference section */
 		773435C82214933200310F2F /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		777935A822138AB500C1DC4F /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		779D286F22151E5900EAC90F /* I'll Serve Soup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "I'll Serve Soup.entitlements"; sourceTree = "<group>"; };
 		779EF8692212370800B315D5 /* SettingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsKeys.swift; sourceTree = "<group>"; };
 		77C409542211DBED0003B2DD /* I'll Serve Soup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I'll Serve Soup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C409572211DBED0003B2DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		77C409562211DBED0003B2DD /* I'll Serve Soup */ = {
 			isa = PBXGroup;
 			children = (
+				779D286F22151E5900EAC90F /* I'll Serve Soup.entitlements */,
 				77FBEA8A2214DAC4008E6310 /* ikan-besar.regular.ttf */,
 				77C409572211DBED0003B2DD /* AppDelegate.swift */,
 				77C4095B2211DBED0003B2DD /* Main.storyboard */,
@@ -161,6 +163,14 @@
 				TargetAttributes = {
 					77C409532211DBED0003B2DD = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
