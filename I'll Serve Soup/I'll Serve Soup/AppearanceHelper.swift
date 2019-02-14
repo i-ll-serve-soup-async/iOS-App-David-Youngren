@@ -20,4 +20,14 @@ enum AppearanceHelper {
         UINavigationBar.appearance().tintColor = red
     }
     
+    static func textFieldFont() -> UIFont {
+        let font = UIFont.systemFont(ofSize: 25)
+        return UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+    }
+    
+    static func systemFont(size: CGFloat, style: UIFont.TextStyle) -> UIFont {
+        let font = UIFont.systemFont(ofSize: size)
+        return UIFontMetrics(forTextStyle: style).scaledFont(for: font)
+    }
+    
 }

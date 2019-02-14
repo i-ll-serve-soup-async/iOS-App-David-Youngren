@@ -61,7 +61,7 @@ class UserController {
     }
     
     func runLogIn(email: String, password: String, completion: @escaping (Error?) -> Void) {
-        defaults.removeObject(forKey: .token)
+
         let userLogIn = UserLogIn(email: email, password: password)
         
         let staffURL = baseURL.appendingPathComponent("staff")

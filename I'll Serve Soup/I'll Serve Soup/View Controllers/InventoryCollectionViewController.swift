@@ -14,9 +14,10 @@ class InventoryCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         setAppearance()
         itemController.getItems { (error) in
-            if let error = error {
-                print("There was error displaying the data: \(error)")
-                return
+            if let _ = error {
+                print("There was error displaying the data")
+                UserDefaults.standard.removeObject(forKey: .token)
+                self.signOut()
             }
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -57,8 +58,21 @@ class InventoryCollectionViewController: UICollectionViewController {
         }
     }
     
+    @IBAction func signOutButtonTapped(_ sender: UIBarButtonItem) {
+        signOut()
+    }
+    
+    func signOut() {
+        DispatchQueue.main.async {
+            UserDefaults.standard.removeObject(forKey: .token)
+            self.performSegue(withIdentifier: "Login", sender: self)
+        }
+    }
+    
+    
     func setAppearance() {
-        accountButton.title = "Account"
+        accountButton.title = "Add Item"
+        signOutButton.title = "Sign Out"
     }
 
     @IBAction func unwindToInventoryCVC(segue: UIStoryboardSegue) { }
@@ -67,6 +81,7 @@ class InventoryCollectionViewController: UICollectionViewController {
     let edgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     let itemsPerRow: CGFloat = 2
     @IBOutlet weak var accountButton: UIBarButtonItem!
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
 }
 
 extension InventoryCollectionViewController: UICollectionViewDelegateFlowLayout {

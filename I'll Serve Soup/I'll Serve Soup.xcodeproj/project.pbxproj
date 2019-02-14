@@ -17,7 +17,6 @@
 		77C4096A2211DE5E0003B2DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409692211DE5E0003B2DD /* LoginViewController.swift */; };
 		77C4096C2211DE6C0003B2DD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4096B2211DE6C0003B2DD /* SignUpViewController.swift */; };
 		77C4096E2211DE820003B2DD /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4096D2211DE820003B2DD /* ItemViewController.swift */; };
-		77C409702211DE930003B2DD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4096F2211DE930003B2DD /* AccountViewController.swift */; };
 		77C409722211DEAC0003B2DD /* InventoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409712211DEAC0003B2DD /* InventoryCollectionViewController.swift */; };
 		77C409752211FC530003B2DD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409742211FC530003B2DD /* User.swift */; };
 		77C409772211FD050003B2DD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409762211FD050003B2DD /* Item.swift */; };
@@ -39,7 +38,6 @@
 		77C409692211DE5E0003B2DD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		77C4096B2211DE6C0003B2DD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		77C4096D2211DE820003B2DD /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
-		77C4096F2211DE930003B2DD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		77C409712211DEAC0003B2DD /* InventoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewController.swift; sourceTree = "<group>"; };
 		77C409742211FC530003B2DD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		77C409762211FD050003B2DD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				77C409692211DE5E0003B2DD /* LoginViewController.swift */,
 				77C4096B2211DE6C0003B2DD /* SignUpViewController.swift */,
 				77C4096D2211DE820003B2DD /* ItemViewController.swift */,
-				77C4096F2211DE930003B2DD /* AccountViewController.swift */,
 				77C409712211DEAC0003B2DD /* InventoryCollectionViewController.swift */,
 			);
 			path = "View Controllers";
@@ -207,7 +204,6 @@
 				779EF86A2212370800B315D5 /* SettingsKeys.swift in Sources */,
 				77C4097A2211FDCD0003B2DD /* UserController.swift in Sources */,
 				77C4096C2211DE6C0003B2DD /* SignUpViewController.swift in Sources */,
-				77C409702211DE930003B2DD /* AccountViewController.swift in Sources */,
 				77C4096E2211DE820003B2DD /* ItemViewController.swift in Sources */,
 				77C409722211DEAC0003B2DD /* InventoryCollectionViewController.swift in Sources */,
 				77C409772211FD050003B2DD /* Item.swift in Sources */,

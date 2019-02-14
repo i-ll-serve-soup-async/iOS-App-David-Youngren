@@ -12,6 +12,7 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAppearance()
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
@@ -64,6 +65,24 @@ class SignUpViewController: UIViewController {
         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertVC.addAction(alertAction)
         present(alertVC, animated: true, completion: nil)
+    }
+    
+    func setAppearance() {
+        firstNameTextField.font = AppearanceHelper.textFieldFont()
+        lastNameTextField.font = AppearanceHelper.textFieldFont()
+        roleTextField.font = AppearanceHelper.textFieldFont()
+        emailTextField.font = AppearanceHelper.textFieldFont()
+        passwordTextField.font = AppearanceHelper.textFieldFont()
+        passwordCheckTextField.font = AppearanceHelper.textFieldFont()
+        signUpTitle.font = AppearanceHelper.systemFont(size: 35, style: .title1)
+        signUpTitle.textColor = AppearanceHelper.darkGreen
+        signUpButton.titleLabel?.font = AppearanceHelper.systemFont(size: 25, style: .body)
+        signUpButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        signUpButton.backgroundColor = AppearanceHelper.red
+        signUpButton.layer.cornerRadius = 8
+        signUpButton.tintColor = AppearanceHelper.pink
+        signUpTitle.text = "Create Account"
+        signUpButton.titleLabel?.text = "Sign Up"
     }
     
     @IBOutlet weak var signUpTitle: UILabel!

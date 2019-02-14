@@ -8,31 +8,85 @@
 
 import UIKit
 
-class ItemViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ItemViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateViews()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return units.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return units.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return units[row]
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        setAppearance()
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "UnwindFromItem", sender: self)
+        guard let name = itemNameTextField.text,
+        let category = categoryTextField.text,
+        let amount = amountTextField.text,
+        let unit = unitTextField.text else {
+            print("Text wasn't unwrapped")
+            return
+        }
+        
+        guard !name.isEmpty && !category.isEmpty && !amount.isEmpty else {
+//            performSegue(withIdentifier: "UnwindFromItem", sender: self)
+            print("A field is empty")
+            return
+        }
+        
+        var unitValue = ""
+        
+        if !unit.isEmpty {
+            unitValue = unit
+        }
+        
+        guard let amountInt = Int(amount),
+        let categoryInt = Int(category) else {
+            displayAlert(title: "Wrong Input", message: "It looks like the category or amount isn't a number.")
+            return
+        }
+        
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = false
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        
+        guard let item = item else {
+            
+            itemController.addItem(name: name, amount: amountInt, category: categoryInt, unit: unitValue) { (error) in
+                if let error = error {
+                    print(error)
+                    DispatchQueue.main.async {
+                        activityIndicator.stopAnimating()
+                        activityIndicator.removeFromSuperview()
+                        self.displayAlert(title: "Server Error", message: "There was an error sending data to the server. Please try again later.")
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                    self.performSegue(withIdentifier: "UnwindFromItem", sender: self)
+                }
+            }
+            return
+        }
+        
+        itemController.updateItem(item: item, name: name, amount: amountInt, category: categoryInt, unit: unitValue) { (error) in
+            if let error = error {
+                print(error)
+                DispatchQueue.main.async {
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                    self.displayAlert(title: "Server Error", message: "There was an error sending data to the server. Please try again later.")
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+                self.performSegue(withIdentifier: "UnwindFromItem", sender: self)
+            }
+        }
+
     }
     
     func updateViews() {
@@ -50,14 +104,25 @@ class ItemViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func setAppearance() {
-        
+        itemNameTextField.font = AppearanceHelper.textFieldFont()
+        categoryTextField.font = AppearanceHelper.textFieldFont()
+        amountTextField.font = AppearanceHelper.textFieldFont()
+        unitTextField.font = AppearanceHelper.textFieldFont()
+    }
+    
+    private func displayAlert(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertVC.addAction(alertAction)
+        present(alertVC, animated: true, completion: nil)
     }
     
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var unitTextField: UITextField!
     
     var item: Item?
     let units = ["lbs.", "oz."]
-    
+    let itemController = ItemController()
 }

@@ -20,10 +20,15 @@ class ItemController {
     func getItems(completion: @escaping (Error?) -> Void) {
         let itemsURL = baseURL.appendingPathComponent("items")
         
+        guard let token = tokenValue else {
+            completion(NSError())
+            return
+        }
+        
         var urlRequest = URLRequest(url: itemsURL)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-        urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
+        urlRequest.addValue(token, forHTTPHeaderField: "authorization")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         print(tokenValue!)
         
@@ -69,16 +74,17 @@ class ItemController {
         }.resume()
     }
     
-    func addItem(name: String, amount: Int, category: Int, completion: @escaping (Error?) -> Void) {
+    func addItem(name: String, amount: Int, category: Int, unit: String, completion: @escaping (Error?) -> Void) {
 
-        var newItem = Item(name: name, amount: amount, categoryID: category)
+        var newItem = Item(name: name, amount: amount, categoryID: category, unit: unit)
 
         let itemsURL = baseURL.appendingPathComponent("items")
 
         var urlRequest = URLRequest(url: itemsURL)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-        urlRequest.addValue("\(String(describing: tokenValue))", forHTTPHeaderField: "authorization")
+        urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
 
         let encoder = JSONEncoder()
         do {
@@ -103,21 +109,51 @@ class ItemController {
 
             let decoder = JSONDecoder()
             do {
-                let decodedData = try decoder.decode(Int.self, from: data)
-                newItem.id = decodedData
+                let decodedData = try decoder.decode(ItemCreated.self, from: data)
+                newItem.id = decodedData.itemID
                 self.items.append(newItem)
+                print(Int(newItem.id!))
             } catch {
                 print("There was an error retrieving data from the server: \(error)")
                 completion(error)
                 return
             }
+            completion(nil)
         }.resume()
     }
 
-    func updateItem(item: Item, name: String, amount: Int, category: Int, completion: @escaping (Error?) -> Void) {
-
-
-
+    func updateItem(item: Item, name: String, amount: Int, category: Int, unit: String, completion: @escaping (Error?) -> Void) {
+        
+        let updatedItem = ItemPUT(name: name, amount: amount, categoryID: category, unit: unit)
+        guard let itemID = item.id else {
+            completion(NSError())
+            return }
+        
+        let itemsURL = baseURL.appendingPathComponent("items")
+        let idURL = itemsURL.appendingPathComponent("\(itemID)")
+        print(idURL)
+        var urlRequest = URLRequest(url: idURL)
+        urlRequest.httpMethod = "PUT"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
+        urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let encoder = JSONEncoder()
+        do {
+            urlRequest.httpBody = try encoder.encode(updatedItem)
+        } catch {
+            print(NSError())
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+            if let error = error {
+                print("There was an error sending data to the server: \(error)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
     }
-    
 }

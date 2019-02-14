@@ -12,11 +12,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
-        
+        setAppearance()
     }
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
@@ -52,12 +48,25 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func setAppearance() {
+        usernameTextField.font = AppearanceHelper.textFieldFont()
+        passwordTextField.font = AppearanceHelper.textFieldFont()
+        loginButton.tintColor = AppearanceHelper.pink
+        loginButton.backgroundColor = AppearanceHelper.red
+        loginButton.layer.cornerRadius = 8
+        loginButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        loginButton.titleLabel?.font = AppearanceHelper.systemFont(size: 25, style: .body)
+        signUpButton.tintColor = .gray
+    }
+    
     private func displayAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertVC.addAction(alertAction)
         present(alertVC, animated: true, completion: nil)
     }
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {}
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
