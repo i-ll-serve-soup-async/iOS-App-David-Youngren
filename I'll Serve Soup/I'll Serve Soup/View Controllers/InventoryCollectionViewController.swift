@@ -69,10 +69,8 @@ class InventoryCollectionViewController: UICollectionViewController {
     }
     
     func signOut() {
-        DispatchQueue.main.async {
-            UserDefaults.standard.removeObject(forKey: .token)
-            self.performSegue(withIdentifier: "Login", sender: self)
-        }
+        UserDefaults.standard.removeObject(forKey: .token)
+        self.performSegue(withIdentifier: "Login", sender: self)
     }
     
     

@@ -14,6 +14,8 @@ class ItemViewController: UIViewController {
         super.viewWillAppear(animated)
         updateViews()
         setAppearance()
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = false
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
@@ -43,9 +45,6 @@ class ItemViewController: UIViewController {
             return
         }
         
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = false
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
@@ -55,15 +54,15 @@ class ItemViewController: UIViewController {
                 if let error = error {
                     print(error)
                     DispatchQueue.main.async {
-                        activityIndicator.stopAnimating()
-                        activityIndicator.removeFromSuperview()
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.removeFromSuperview()
                         self.displayAlert(title: "Server Error", message: "There was an error sending data to the server. Please try again later.")
                     }
                     return
                 }
                 DispatchQueue.main.async {
-                    activityIndicator.stopAnimating()
-                    activityIndicator.removeFromSuperview()
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.removeFromSuperview()
                     self.performSegue(withIdentifier: "UnwindFromItem", sender: self)
                 }
             }
@@ -74,19 +73,43 @@ class ItemViewController: UIViewController {
             if let error = error {
                 print(error)
                 DispatchQueue.main.async {
-                    activityIndicator.stopAnimating()
-                    activityIndicator.removeFromSuperview()
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.removeFromSuperview()
                     self.displayAlert(title: "Server Error", message: "There was an error sending data to the server. Please try again later.")
                 }
                 return
             }
             DispatchQueue.main.async {
-                activityIndicator.stopAnimating()
-                activityIndicator.removeFromSuperview()
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.removeFromSuperview()
                 self.performSegue(withIdentifier: "UnwindFromItem", sender: self)
             }
         }
 
+    }
+    
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        
+        guard let item = item else { return }
+        itemController.deleteItem(item: item) { (error) in
+            if let error = error {
+                print(error)
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.removeFromSuperview()
+                    self.displayAlert(title: "Server Error", message: "There was an error deleting data to the server. Please try again later.")
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.removeFromSuperview()
+                self.performSegue(withIdentifier: "UnwindFromItem", sender: self)
+            }
+        }
     }
     
     func updateViews() {
@@ -95,11 +118,15 @@ class ItemViewController: UIViewController {
             categoryTextField.text = String(item.categoryID)
             amountTextField.text = String(item.amount)
             navigationItem.title = "Edit \(item.name.capitalized)"
+            deleteButton.setTitle("Delete \(item.name) from inventory.", for: .normal)
+            deleteButton.isEnabled = true
         } else {
             itemNameTextField.text = ""
             categoryTextField.text = ""
             amountTextField.text = ""
             navigationItem.title = "Add Item"
+            deleteButton.setTitle("", for: .normal)
+            deleteButton.isEnabled = false
         }
     }
     
@@ -108,6 +135,7 @@ class ItemViewController: UIViewController {
         categoryTextField.font = AppearanceHelper.textFieldFont()
         amountTextField.font = AppearanceHelper.textFieldFont()
         unitTextField.font = AppearanceHelper.textFieldFont()
+        deleteButton.tintColor = .gray
     }
     
     private func displayAlert(title: String, message: String) {
@@ -121,6 +149,8 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var unitTextField: UITextField!
+    @IBOutlet weak var deleteButton: UIButton!
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
     
     var item: Item?
     let units = ["lbs.", "oz."]

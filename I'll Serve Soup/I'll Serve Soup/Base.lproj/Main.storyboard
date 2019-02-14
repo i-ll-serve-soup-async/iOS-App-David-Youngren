@@ -210,12 +210,21 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAX-tj-goG">
+                                <rect key="frame" x="164.5" y="617" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="kW2-PN-BtY" eventType="touchUpInside" id="0iw-QR-ZCS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pr3-yz-Qwd" firstAttribute="top" secondItem="JZU-TQ-nk6" secondAttribute="top" constant="20" id="KM9-ik-R7p"/>
+                            <constraint firstItem="JZU-TQ-nk6" firstAttribute="bottom" secondItem="SAX-tj-goG" secondAttribute="bottom" constant="20" id="ZFd-aO-6Qa"/>
                             <constraint firstItem="pr3-yz-Qwd" firstAttribute="leading" secondItem="JZU-TQ-nk6" secondAttribute="leading" constant="16" id="Zdi-vQ-Q87"/>
                             <constraint firstItem="JZU-TQ-nk6" firstAttribute="trailing" secondItem="pr3-yz-Qwd" secondAttribute="trailing" constant="16" id="cw6-cc-RP1"/>
+                            <constraint firstItem="SAX-tj-goG" firstAttribute="centerX" secondItem="eRQ-Ex-SDW" secondAttribute="centerX" id="f1u-eD-9u6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JZU-TQ-nk6"/>
                     </view>
@@ -229,6 +238,7 @@
                     <connections>
                         <outlet property="amountTextField" destination="Ys9-6C-k7O" id="gra-50-Jlu"/>
                         <outlet property="categoryTextField" destination="tae-ia-e9i" id="R2B-9V-PpG"/>
+                        <outlet property="deleteButton" destination="SAX-tj-goG" id="2S6-Jz-gsg"/>
                         <outlet property="itemNameTextField" destination="c5B-Kw-ZFF" id="2ft-EE-5ui"/>
                         <outlet property="unitTextField" destination="Pkt-Rh-ADT" id="y3P-nw-bkP"/>
                         <segue destination="3TD-W6-qXr" kind="unwind" identifier="UnwindFromItem" unwindAction="unwindToInventoryCVCWithSegue:" id="N8S-Ro-TfN"/>

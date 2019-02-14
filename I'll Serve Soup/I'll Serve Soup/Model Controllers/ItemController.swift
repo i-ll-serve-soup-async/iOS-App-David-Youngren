@@ -140,4 +140,29 @@ class ItemController {
             completion(nil)
         }.resume()
     }
+    
+    func deleteItem(item: Item, completion: @escaping (Error?) -> Void) {
+        guard let itemID = item.id else {
+            completion(NSError())
+            return }
+        
+        let itemsURL = baseURL.appendingPathComponent("items")
+        let idURL = itemsURL.appendingPathComponent("\(itemID)")
+        
+        var urlRequest = URLRequest(url: idURL)
+        
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
+        urlRequest.addValue(tokenValue!, forHTTPHeaderField: "authorization")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
+            if let error = error {
+                print("There was an error deleting data to the server: \(error)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
+    }
 }
