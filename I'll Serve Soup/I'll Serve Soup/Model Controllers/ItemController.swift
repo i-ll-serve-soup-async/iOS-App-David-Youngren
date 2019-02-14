@@ -19,7 +19,7 @@ class ItemController {
     func getItems(token: String, completion: @escaping (Error?) -> Void) {
         let itemsURL = baseURL.appendingPathComponent("items")
         
-        var urlRequest = URLRequest(url: itemsURL)
+        var urlRequest = URLRequest(url: itemsURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 0.2)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.addValue(token, forHTTPHeaderField: "authorization")

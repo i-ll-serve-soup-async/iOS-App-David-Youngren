@@ -19,16 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="i4d-Uf-ZM4">
-                                <rect key="frame" x="62.5" y="277.5" width="250" height="72"/>
+                                <rect key="frame" x="62.5" y="161.5" width="250" height="284"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2019-02-11 at 4.37.14 PM" translatesAutoresizingMaskIntoConstraints="NO" id="6Jx-X7-l4p">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="Gq0-8k-Bli"/>
+                                        </constraints>
+                                    </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2H-fh-Tkh">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
+                                        <rect key="frame" x="0.0" y="212" width="250" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sKV-C9-67T">
-                                        <rect key="frame" x="0.0" y="42" width="250" height="30"/>
+                                        <rect key="frame" x="0.0" y="254" width="250" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -39,7 +45,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5c7-oa-FBh">
-                                <rect key="frame" x="62.5" y="389.5" width="250" height="90"/>
+                                <rect key="frame" x="62.5" y="485.5" width="250" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bec-bu-F3B">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
@@ -65,8 +71,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5c7-oa-FBh" firstAttribute="top" secondItem="i4d-Uf-ZM4" secondAttribute="bottom" constant="40" id="2sV-6d-jzZ"/>
-                            <constraint firstItem="i4d-Uf-ZM4" firstAttribute="centerY" secondItem="Re5-hd-Ts1" secondAttribute="centerY" constant="-20" id="PJP-Oa-NcD"/>
-                            <constraint firstItem="i4d-Uf-ZM4" firstAttribute="centerY" secondItem="Re5-hd-Ts1" secondAttribute="centerY" constant="-20" id="QDA-vF-ECt"/>
+                            <constraint firstItem="i4d-Uf-ZM4" firstAttribute="centerY" secondItem="Re5-hd-Ts1" secondAttribute="centerY" constant="-30" id="PJP-Oa-NcD"/>
+                            <constraint firstItem="i4d-Uf-ZM4" firstAttribute="centerY" secondItem="Re5-hd-Ts1" secondAttribute="centerY" constant="-30" id="QDA-vF-ECt"/>
                             <constraint firstItem="5c7-oa-FBh" firstAttribute="centerX" secondItem="Re5-hd-Ts1" secondAttribute="centerX" id="QGO-sa-Mr5"/>
                             <constraint firstItem="i4d-Uf-ZM4" firstAttribute="centerX" secondItem="Re5-hd-Ts1" secondAttribute="centerX" id="m2a-GS-5PX"/>
                         </constraints>
@@ -83,7 +89,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9t-JV-YRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hnx-UQ-u1z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-153" y="-80"/>
+            <point key="canvasLocation" x="-154.40000000000001" y="-80.50974512743629"/>
         </scene>
         <!--Inventory-->
         <scene sceneID="0D4-pa-ZUr">
@@ -361,6 +367,9 @@
             <point key="canvasLocation" x="-167.19999999999999" y="666.11694152923542"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Screen Shot 2019-02-11 at 4.37.14 PM" width="213" height="337"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ndv-eS-4Bj"/>
     </inferredMetricsTieBreakers>
