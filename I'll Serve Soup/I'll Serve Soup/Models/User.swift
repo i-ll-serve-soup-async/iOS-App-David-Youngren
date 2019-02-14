@@ -14,17 +14,13 @@ struct User: Codable {
     var email: String
     var role: String
     var password: String
-    var token: String?
-    var id: Int?
     
-    init(firstName: String, lastName: String, email: String, role: String, password: String, token: String? = nil, id: Int? = nil) {
+    init(firstName: String, lastName: String, email: String, role: String, password: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.role = role
         self.password = password
-        self.token = token
-        self.id = id
     }
     
     enum CodingKeys: String, CodingKey {
@@ -34,4 +30,20 @@ struct User: Codable {
         case role = "role"
         case password = "password"
     }
+}
+
+struct UserLogIn: Codable {
+    var email: String
+    var password: String
+    
+    init(email: String, password: String) {
+        self.email = email
+        self.password = password
+    }
+}
+
+struct UserResponse: Codable {
+    var token: String?
+    var id: Int
+    var email: String
 }
