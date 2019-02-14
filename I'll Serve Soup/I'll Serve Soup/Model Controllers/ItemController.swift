@@ -75,8 +75,9 @@ class ItemController {
     }
     
     func addItem(name: String, amount: Int, category: Int, unit: String, completion: @escaping (Error?) -> Void) {
-
-        var newItem = Item(name: name, amount: amount, categoryID: category, unit: unit)
+        
+        let newItem = Item(name: name, amount: amount, categoryID: category, unit: unit)
+        print(newItem)
 
         let itemsURL = baseURL.appendingPathComponent("items")
 
@@ -95,26 +96,9 @@ class ItemController {
             return
         }
 
-        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
+        URLSession.shared.dataTask(with: urlRequest) { (_, _, error) in
             if let error = error {
                 print("There was an error sending data to the server: \(error)")
-                completion(error)
-                return
-            }
-
-            guard let data = data else {
-                completion(NSError())
-                return
-            }
-
-            let decoder = JSONDecoder()
-            do {
-                let decodedData = try decoder.decode(ItemCreated.self, from: data)
-                newItem.id = decodedData.itemID
-                self.items.append(newItem)
-                print(Int(newItem.id!))
-            } catch {
-                print("There was an error retrieving data from the server: \(error)")
                 completion(error)
                 return
             }

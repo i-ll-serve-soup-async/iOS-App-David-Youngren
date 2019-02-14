@@ -38,12 +38,18 @@ class InventoryCollectionViewController: UICollectionViewController {
         itemCell.backgroundColor = AppearanceHelper.darkGreen
         itemCell.itemNameLabel.textColor = .white
         itemCell.itemAmountLabel.textColor = .white
-        itemController.loadImages(item: item) { (data) in
-            guard let data = data else { return }
-            
-            let image = UIImage(data: data)
-            itemCell.cellImageView.image = image
-            itemCell.cellImageView.alpha = 0.6
+        
+        if item.imageURL != nil || item.imageURL == "" {
+            itemController.loadImages(item: item) { (data) in
+                guard let data = data else { return }
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    itemCell.cellImageView.image = image
+                    itemCell.cellImageView.alpha = 0.6
+                }
+            }
+        } else {
+            itemCell.cellImageView.alpha = 0
         }
         return itemCell
     }
