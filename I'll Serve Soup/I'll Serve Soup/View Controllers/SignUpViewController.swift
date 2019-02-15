@@ -55,7 +55,9 @@ class SignUpViewController: UIViewController {
             DispatchQueue.main.async {
                 activityIndicator.stopAnimating()
                 activityIndicator.removeFromSuperview()
-                self.performSegue(withIdentifier: "FinishSignUp", sender: self)
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else { return }
+                self.present(destinationVC, animated: true, completion: nil)
             }
         }
     }
@@ -74,15 +76,22 @@ class SignUpViewController: UIViewController {
         emailTextField.font = AppearanceHelper.textFieldFont()
         passwordTextField.font = AppearanceHelper.textFieldFont()
         passwordCheckTextField.font = AppearanceHelper.textFieldFont()
+        firstNameTextField.setHeight()
+        lastNameTextField.setHeight()
+        roleTextField.setHeight()
+        emailTextField.setHeight()
+        passwordTextField.setHeight()
+        passwordCheckTextField.setHeight()
         signUpTitle.font = AppearanceHelper.systemFont(size: 35, style: .title1)
         signUpTitle.textColor = AppearanceHelper.darkGreen
         signUpButton.titleLabel?.font = AppearanceHelper.systemFont(size: 25, style: .body)
-        signUpButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        signUpButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
         signUpButton.backgroundColor = AppearanceHelper.red
         signUpButton.layer.cornerRadius = 8
         signUpButton.tintColor = AppearanceHelper.pink
         signUpTitle.text = "Create Account"
         signUpButton.titleLabel?.text = "Sign Up"
+        AppearanceHelper.addShadow(views: [firstNameTextField, lastNameTextField, roleTextField, emailTextField, passwordTextField, passwordCheckTextField, signUpButton, signUpTitle])
     }
     
     @IBOutlet weak var signUpTitle: UILabel!

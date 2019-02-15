@@ -13,10 +13,9 @@ class InventoryCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setAppearance()
-        itemController.getItems { (error) in
+        itemController.getItems() { (error) in
             if let _ = error {
                 print("There was error displaying the data")
-                UserDefaults.standard.removeObject(forKey: .token)
                 self.signOut()
             }
             DispatchQueue.main.async {
@@ -69,8 +68,12 @@ class InventoryCollectionViewController: UICollectionViewController {
     }
     
     func signOut() {
-        UserDefaults.standard.removeObject(forKey: .token)
-        self.performSegue(withIdentifier: "Login", sender: self)
+        DispatchQueue.main.async {
+            UserDefaults.standard.removeObject(forKey: .token)
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            guard let destinationViewController = mainStoryboard.instantiateViewController(withIdentifier: "logInVC") as? LoginViewController else { return }
+            self.present(destinationViewController, animated: true, completion: nil)
+        }
     }
     
     
@@ -81,6 +84,8 @@ class InventoryCollectionViewController: UICollectionViewController {
 
     @IBAction func unwindToInventoryCVC(segue: UIStoryboardSegue) { }
     
+    var tokenString: String?
+    let userController = UserController()
     let itemController = ItemController()
     let edgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     let itemsPerRow: CGFloat = 2

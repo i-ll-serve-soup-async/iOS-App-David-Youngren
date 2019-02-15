@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7702FB54221684FC001713DB /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7702FB53221684FC001713DB /* TextFieldExtension.swift */; };
 		773435C92214933200310F2F /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773435C82214933200310F2F /* AppearanceHelper.swift */; };
 		777935A922138AB500C1DC4F /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777935A822138AB500C1DC4F /* ItemCollectionViewCell.swift */; };
 		779EF86A2212370800B315D5 /* SettingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779EF8692212370800B315D5 /* SettingsKeys.swift */; };
@@ -22,10 +23,10 @@
 		77C409772211FD050003B2DD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409762211FD050003B2DD /* Item.swift */; };
 		77C4097A2211FDCD0003B2DD /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409792211FDCD0003B2DD /* UserController.swift */; };
 		77C4097C2211FDEA0003B2DD /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4097B2211FDEA0003B2DD /* ItemController.swift */; };
-		77FBEA8B2214DAC4008E6310 /* ikan-besar.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77FBEA8A2214DAC4008E6310 /* ikan-besar.regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7702FB53221684FC001713DB /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		773435C82214933200310F2F /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		777935A822138AB500C1DC4F /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		779EF8692212370800B315D5 /* SettingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsKeys.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		77C409762211FD050003B2DD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		77C409792211FDCD0003B2DD /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		77C4097B2211FDEA0003B2DD /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
-		77FBEA8A2214DAC4008E6310 /* ikan-besar.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ikan-besar.regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,6 @@
 		77C409562211DBED0003B2DD /* I'll Serve Soup */ = {
 			isa = PBXGroup;
 			children = (
-				77FBEA8A2214DAC4008E6310 /* ikan-besar.regular.ttf */,
 				77C409572211DBED0003B2DD /* AppDelegate.swift */,
 				77C4095B2211DBED0003B2DD /* Main.storyboard */,
 				77C4095E2211DBEE0003B2DD /* Assets.xcassets */,
@@ -96,6 +95,7 @@
 				77C4097D2211FDFB0003B2DD /* Model Controllers */,
 				777935AA2213946D00C1DC4F /* Views */,
 				773435C82214933200310F2F /* AppearanceHelper.swift */,
+				7702FB53221684FC001713DB /* TextFieldExtension.swift */,
 			);
 			path = "I'll Serve Soup";
 			sourceTree = "<group>";
@@ -161,6 +161,14 @@
 				TargetAttributes = {
 					77C409532211DBED0003B2DD = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -190,7 +198,6 @@
 				77C409622211DBEE0003B2DD /* LaunchScreen.storyboard in Resources */,
 				77C4095F2211DBEE0003B2DD /* Assets.xcassets in Resources */,
 				77C4095D2211DBED0003B2DD /* Main.storyboard in Resources */,
-				77FBEA8B2214DAC4008E6310 /* ikan-besar.regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +217,7 @@
 				77C4096A2211DE5E0003B2DD /* LoginViewController.swift in Sources */,
 				77C409582211DBED0003B2DD /* AppDelegate.swift in Sources */,
 				777935A922138AB500C1DC4F /* ItemCollectionViewCell.swift in Sources */,
+				7702FB54221684FC001713DB /* TextFieldExtension.swift in Sources */,
 				773435C92214933200310F2F /* AppearanceHelper.swift in Sources */,
 				77C4097C2211FDEA0003B2DD /* ItemController.swift in Sources */,
 				77C409752211FC530003B2DD /* User.swift in Sources */,

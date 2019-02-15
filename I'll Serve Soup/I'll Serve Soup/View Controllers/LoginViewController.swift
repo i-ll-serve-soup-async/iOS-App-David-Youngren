@@ -43,7 +43,10 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 activityIndicator.stopAnimating()
                 activityIndicator.removeFromSuperview()
-                self.performSegue(withIdentifier: "FinishLogIn", sender: self)
+                
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController else { return }
+                self.present(destinationVC, animated: true, completion: nil)
             }
         }
     }
@@ -51,10 +54,13 @@ class LoginViewController: UIViewController {
     func setAppearance() {
         usernameTextField.font = AppearanceHelper.textFieldFont()
         passwordTextField.font = AppearanceHelper.textFieldFont()
+        usernameTextField.setHeight()
+        passwordTextField.setHeight()
+        AppearanceHelper.addShadow(views: [usernameTextField, passwordTextField, loginButton])
         loginButton.tintColor = AppearanceHelper.pink
         loginButton.backgroundColor = AppearanceHelper.red
         loginButton.layer.cornerRadius = 8
-        loginButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        loginButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
         loginButton.titleLabel?.font = AppearanceHelper.systemFont(size: 25, style: .body)
         signUpButton.tintColor = .gray
     }
@@ -65,8 +71,6 @@ class LoginViewController: UIViewController {
         alertVC.addAction(alertAction)
         present(alertVC, animated: true, completion: nil)
     }
-    
-    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {}
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
