@@ -11,7 +11,8 @@ import UIKit
 extension UITextField {
     
     func setHeight() {
-        let newHeight = self.frame.height * 1.5
+        let newHeight: CGFloat = self.font!.pointSize * 1.7
+        print(newHeight)
         self.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
     }
 }
