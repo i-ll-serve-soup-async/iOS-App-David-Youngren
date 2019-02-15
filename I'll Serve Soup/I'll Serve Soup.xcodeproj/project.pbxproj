@@ -22,7 +22,6 @@
 		77C409772211FD050003B2DD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409762211FD050003B2DD /* Item.swift */; };
 		77C4097A2211FDCD0003B2DD /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C409792211FDCD0003B2DD /* UserController.swift */; };
 		77C4097C2211FDEA0003B2DD /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4097B2211FDEA0003B2DD /* ItemController.swift */; };
-		77FBEA8B2214DAC4008E6310 /* ikan-besar.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77FBEA8A2214DAC4008E6310 /* ikan-besar.regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +43,6 @@
 		77C409762211FD050003B2DD /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		77C409792211FDCD0003B2DD /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		77C4097B2211FDEA0003B2DD /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
-		77FBEA8A2214DAC4008E6310 /* ikan-besar.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ikan-besar.regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				779D286F22151E5900EAC90F /* I'll Serve Soup.entitlements */,
-				77FBEA8A2214DAC4008E6310 /* ikan-besar.regular.ttf */,
 				77C409572211DBED0003B2DD /* AppDelegate.swift */,
 				77C4095B2211DBED0003B2DD /* Main.storyboard */,
 				77C4095E2211DBEE0003B2DD /* Assets.xcassets */,
@@ -200,7 +197,6 @@
 				77C409622211DBEE0003B2DD /* LaunchScreen.storyboard in Resources */,
 				77C4095F2211DBEE0003B2DD /* Assets.xcassets in Resources */,
 				77C4095D2211DBED0003B2DD /* Main.storyboard in Resources */,
-				77FBEA8B2214DAC4008E6310 /* ikan-besar.regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
