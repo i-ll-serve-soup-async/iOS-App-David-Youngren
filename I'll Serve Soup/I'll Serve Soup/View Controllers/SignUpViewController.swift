@@ -76,6 +76,12 @@ class SignUpViewController: UIViewController {
         emailTextField.font = AppearanceHelper.textFieldFont()
         passwordTextField.font = AppearanceHelper.textFieldFont()
         passwordCheckTextField.font = AppearanceHelper.textFieldFont()
+        firstNameTextField.setHeight()
+        lastNameTextField.setHeight()
+        roleTextField.setHeight()
+        emailTextField.setHeight()
+        passwordTextField.setHeight()
+        passwordCheckTextField.setHeight()
         signUpTitle.font = AppearanceHelper.systemFont(size: 35, style: .title1)
         signUpTitle.textColor = AppearanceHelper.darkGreen
         signUpButton.titleLabel?.font = AppearanceHelper.systemFont(size: 25, style: .body)

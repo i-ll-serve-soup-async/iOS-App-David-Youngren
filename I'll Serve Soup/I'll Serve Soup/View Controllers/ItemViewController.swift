@@ -142,6 +142,9 @@ class ItemViewController: UIViewController {
         unitTextField.font = AppearanceHelper.textFieldFont()
         deleteButton.tintColor = .gray
         AppearanceHelper.addShadow(views: [itemNameTextField, amountTextField, unitTextField])
+        itemNameTextField.setHeight()
+        amountTextField.setHeight()
+        unitTextField.setHeight()
     }
     
     private func displayAlert(title: String, message: String) {

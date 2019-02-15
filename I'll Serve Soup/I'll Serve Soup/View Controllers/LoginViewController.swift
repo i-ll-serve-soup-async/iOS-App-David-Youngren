@@ -54,6 +54,8 @@ class LoginViewController: UIViewController {
     func setAppearance() {
         usernameTextField.font = AppearanceHelper.textFieldFont()
         passwordTextField.font = AppearanceHelper.textFieldFont()
+        usernameTextField.setHeight()
+        passwordTextField.setHeight()
         AppearanceHelper.addShadow(views: [usernameTextField, passwordTextField, loginButton])
         loginButton.tintColor = AppearanceHelper.pink
         loginButton.backgroundColor = AppearanceHelper.red
