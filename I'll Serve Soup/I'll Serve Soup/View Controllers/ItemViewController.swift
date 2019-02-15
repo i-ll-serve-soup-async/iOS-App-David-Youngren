@@ -20,14 +20,13 @@ class ItemViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let name = itemNameTextField.text,
-        let category = categoryTextField.text,
         let amount = amountTextField.text,
         let unit = unitTextField.text else {
             print("Text wasn't unwrapped")
             return
         }
         
-        guard !name.isEmpty && !category.isEmpty && !amount.isEmpty else {
+        guard !name.isEmpty && !amount.isEmpty else {
 //            performSegue(withIdentifier: "UnwindFromItem", sender: self)
             print("A field is empty")
             return
@@ -39,10 +38,17 @@ class ItemViewController: UIViewController {
             unitValue = unit
         }
         
-        guard let amountInt = Int(amount),
-        let categoryInt = Int(category) else {
+        guard let amountInt = Int(amount) else {
             displayAlert(title: "Wrong Input", message: "It looks like the category or amount isn't a number.")
             return
+        }
+        
+        var itemCategory = Int()
+        
+        if self.item?.categoryID == nil {
+            itemCategory = 1
+        } else {
+            itemCategory = self.item!.categoryID
         }
         
         activityIndicator.startAnimating()
@@ -50,7 +56,7 @@ class ItemViewController: UIViewController {
         
         guard let item = item else {
             
-            itemController.addItem(name: name, amount: amountInt, category: categoryInt, unit: unitValue) { (error) in
+            itemController.addItem(name: name, amount: amountInt, category: itemCategory, unit: unitValue) { (error) in
                 if let error = error {
                     print(error)
                     DispatchQueue.main.async {
@@ -69,7 +75,7 @@ class ItemViewController: UIViewController {
             return
         }
         
-        itemController.updateItem(item: item, name: name, amount: amountInt, category: categoryInt, unit: unitValue) { (error) in
+        itemController.updateItem(item: item, name: name, amount: amountInt, category: itemCategory, unit: unitValue) { (error) in
             if let error = error {
                 print(error)
                 DispatchQueue.main.async {
@@ -115,7 +121,6 @@ class ItemViewController: UIViewController {
     func updateViews() {
         if let item = item {
             itemNameTextField.text = item.name.capitalized
-            categoryTextField.text = String(item.categoryID)
             amountTextField.text = String(item.amount)
             navigationItem.title = "Edit \(item.name.capitalized)"
             deleteButton.setTitle("Delete \(item.name) from inventory.", for: .normal)
@@ -123,7 +128,6 @@ class ItemViewController: UIViewController {
             updateButton.title = "Update"
         } else {
             itemNameTextField.text = ""
-            categoryTextField.text = ""
             amountTextField.text = ""
             navigationItem.title = "Add Item"
             deleteButton.setTitle("", for: .normal)
@@ -134,11 +138,10 @@ class ItemViewController: UIViewController {
     
     func setAppearance() {
         itemNameTextField.font = AppearanceHelper.textFieldFont()
-        categoryTextField.font = AppearanceHelper.textFieldFont()
         amountTextField.font = AppearanceHelper.textFieldFont()
         unitTextField.font = AppearanceHelper.textFieldFont()
         deleteButton.tintColor = .gray
-        AppearanceHelper.addShadow(views: [itemNameTextField, categoryTextField, amountTextField, unitTextField])
+        AppearanceHelper.addShadow(views: [itemNameTextField, amountTextField, unitTextField])
     }
     
     private func displayAlert(title: String, message: String) {
@@ -149,7 +152,6 @@ class ItemViewController: UIViewController {
     }
     
     @IBOutlet weak var itemNameTextField: UITextField!
-    @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var unitTextField: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
